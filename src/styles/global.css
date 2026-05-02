@@ -1,0 +1,49 @@
+/* ============================================
+   GLOBAL STYLES & DESIGN TOKENS
+   ============================================ */
+
+:root {
+  --font-main: 'DM Sans', sans-serif;
+  --color-bg: #000000;
+  --color-white: #ffffff;
+  --color-glass-bg: rgba(255, 255, 255, 0.08);
+  --color-glass-border: rgba(255, 255, 255, 0.2);
+  --color-overlay-top: rgba(0, 0, 0, 0.3);
+  --color-overlay-bottom: rgba(0, 0, 0, 0.5);
+  --radius-card: 24px;
+  --radius-pill: 50px;
+  --blur-glass: blur(12px);
+  --blur-glass-strong: blur(15px);
+  --transition-smooth: all 0.3s ease;
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  width: 100%;
+  background-color: var(--color-bg);
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--color-bg);
+  color: var(--color-white);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Remove default button/link styles */
+button, a {
+  font-family: var(--font-main);
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}

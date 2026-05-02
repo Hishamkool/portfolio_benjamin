@@ -1,0 +1,11 @@
+.app {
+  width: 100%;
+  overflow-x: hidden;
+
+  /* Fixed background image (layer 8) */
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: 100% auto;
+  background-attachment: fixed;
+  background-color: #000;
+}

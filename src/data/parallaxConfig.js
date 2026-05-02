@@ -1,0 +1,113 @@
+// ============================================
+// PARALLAX SCENE CONFIGURATION
+// ============================================
+// Edit this file to customize layers, clouds, and text cards.
+// No need to touch component files for content changes.
+
+// --- ZOOM SETTINGS ---
+export const ZOOM_CONFIG = {
+  start: 0.5,      // scroll progress when zoom begins (0 to 1)
+  max: 1.4,        // maximum zoom scale
+  easing: 0.08,    // lerp smoothing factor (lower = smoother/slower)
+};
+
+// --- SCROLL SETTINGS ---
+export const SCROLL_CONFIG = {
+  totalViewportMultiplier: 7, // body height = this × 100vh
+};
+
+// --- IMAGE LAYERS ---
+// Ordered back-to-front (index 0 is furthest back)
+// speed: how fast this layer moves (higher = more parallax offset)
+// baseRange: the total pixel range of movement
+export const LAYERS = [
+  { id: 'layer7', src: '/assets/7.png', speed: 0.12, baseRange: 2000 },
+  { id: 'layer6', src: '/assets/6.png', speed: 0.22, baseRange: 2200 },
+  { id: 'layer5', src: '/assets/5.png', speed: 0.34, baseRange: 2400 },
+  { id: 'layer4', src: '/assets/4.png', speed: 0.46, baseRange: 2600 },
+  { id: 'layer2', src: '/assets/2.png', speed: 0.60, baseRange: 2800 },
+  { id: 'layer3', src: '/assets/3.png', speed: 0.75, baseRange: 3000 },
+  { id: 'layer1', src: '/assets/1.png', speed: 0.92, baseRange: 3200 },
+];
+
+// --- CLOUD LAYERS ---
+// moveType: 'ltr' (left to right) or 'rtl' (right to left)
+// startX / endX: horizontal position as % offset from center (e.g. -70 = 30% from left)
+// yPercent: vertical position as % of viewport height
+// speedMult: multiplier on scroll progress (1 = full range, 0.5 = half speed)
+export const CLOUDS = [
+  {
+    id: 'cloud1',
+    src: '/assets/cloud1.png',
+    moveType: 'ltr',
+    startX: -70,
+    endX: 70,
+    yPercent: 20,
+    speedMult: 0.6,
+    opacity: 0.75,
+    width: 400,
+  },
+  {
+    id: 'cloud2',
+    src: '/assets/cloud2.png',
+    moveType: 'rtl',
+    startX: 70,
+    endX: -70,
+    yPercent: 45,
+    speedMult: 0.8,
+    opacity: 0.75,
+    width: 400,
+  },
+  {
+    id: 'cloud3',
+    src: '/assets/cloud3.png',
+    moveType: 'ltr',
+    startX: -80,
+    endX: 60,
+    yPercent: 70,
+    speedMult: 1.0,
+    opacity: 0.75,
+    width: 400,
+  },
+];
+
+// --- TEXT CARDS ---
+// fadeStart / fadeEnd: scroll progress range during which text fades in then out
+// variant: 'hero' (large centered) | 'body' (paragraph style)
+export const TEXT_CARDS = [
+  {
+    id: 'text1',
+    content: 'WELCOME TO THE DEPTHS',
+    fadeStart: 0,
+    fadeEnd: 0.35,
+    variant: 'hero',
+  },
+  {
+    id: 'text2',
+    content:
+      'In a world where imagination shapes reality, one artist crafts stories, worlds, and heroes. Enter the realm of Benjamin, the Game Artist who turns ideas into living worlds.',
+    fadeStart: 0.25,
+    fadeEnd: 0.65,
+    variant: 'body',
+  },
+  {
+    id: 'text3',
+    content:
+      'In a world shaped by imagination, Benjamin brings ideas to life — crafting characters, worlds, and stories that feel real. Step into his creative space and explore the work behind the worlds.',
+    fadeStart: 0.55,
+    fadeEnd: 0.95,
+    variant: 'body',
+  },
+];
+
+// --- CTA BUTTON ---
+export const CTA_CONFIG = {
+  label: '✨ LET\'S GET STARTED ✨',
+  href: '#contact',               // Change to your target section or URL
+  fadeInAt: 0.7,                  // scroll progress when button fades in
+};
+
+// --- BACKGROUND ---
+export const BACKGROUND_CONFIG = {
+  src: '/assets/8.png',           // Fixed background image
+};
