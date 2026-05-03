@@ -31,9 +31,20 @@ export default function LoadingScreen({ imageSrcs, onComplete }) {
         img.src = src;
       });
 
-    Promise.all(imageSrcs.map(loadImage)).then(() => {
+    //if you want super fast loading if the images are being cached already by the browser replace the promise block with this:
+    /* Promise.all(imageSrcs.map(loadImage)).then(() => {
       // Small delay so user sees 100% before transitioning
       setTimeout(() => setPhase("ready"), 400);
+    }); */
+
+    //with a minimum delay of 500 ms to ensure the loading screen is visible even if images load instantly from cache
+    const start = Date.now();
+
+    Promise.all(imageSrcs.map(loadImage)).then(() => {
+      const elapsed = Date.now() - start;
+      const minDuration = 500; // ← minimum 1.5 seconds of loading screen
+      const remaining = Math.max(0, minDuration - elapsed);
+      setTimeout(() => setPhase("ready"), remaining + 400);
     });
   }, [imageSrcs]);
 
