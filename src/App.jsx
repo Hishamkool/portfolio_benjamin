@@ -1,48 +1,62 @@
-import { useRef } from 'react';
-import ParallaxScene from './components/parallax/ParallaxScene';
-import Overlay from './components/ui/Overlay';
-import CTAButton from './components/ui/CTAButton';
-import { SCROLL_CONFIG, BACKGROUND_CONFIG } from './data/parallaxConfig';
-import './styles/global.css';
-import styles from './App.module.css';
+import { useRef, useState } from "react";
+import ParallaxScene from "./components/parallax/ParallaxScene";
+import Overlay from "./components/ui/Overlay";
+import CTAButton from "./components/ui/CTAButton";
+import LoadingScreen from "./components/ui/LoadingScreen";
+import {
+  SCROLL_CONFIG,
+  BACKGROUND_CONFIG,
+  LAYERS,
+  CLOUDS,
+} from "./data/parallaxConfig";
+import "./styles/global.css";
+import styles from "./App.module.css";
 
-/**
- * App
- *
- * Root component. Sets up:
- * - Tall scrollable body (drives the parallax)
- * - Fixed background image (layer 8)
- * - ParallaxScene (all layers, clouds, text)
- * - Overlay (vignette)
- * - CTAButton (fades in at end)
- */
+// Build the full list of images to preload
+// Includes all layer PNGs + cloud PNGs + background
+const ALL_IMAGES = [
+  BACKGROUND_CONFIG.src,
+  ...LAYERS.map((l) => l.src),
+  ...CLOUDS.map((c) => c.src),
+];
+
 export default function App() {
   const ctaRef = useRef(null);
+  const [started, setStarted] = useState(false); // false = loading screen visible
+  const [fadeOut, setFadeOut] = useState(false); // triggers CSS fade-out of loader
+
+  const handleStart = () => {
+    setFadeOut(true);
+    // Wait for fade-out animation, then unmount loader
+    setTimeout(() => setStarted(true), 600);
+  };
 
   return (
-    <div
-      className={styles.app}
-      style={{
-        // Body height = multiplier × 100vh — controls how long the animation plays
-        height: `${SCROLL_CONFIG.totalViewportMultiplier * 100}vh`,
-        minHeight: `${SCROLL_CONFIG.totalViewportMultiplier * 1000}px`,
-        backgroundImage: `url('${BACKGROUND_CONFIG.src}')`,
-      }}
-    >
-      {/* All parallax layers, clouds, and text cards */}
-      <ParallaxScene ctaRef={ctaRef} />
+    <>
+      {/* Loading screen — unmounted after start */}
+      {!started && (
+        <div
+          style={{ opacity: fadeOut ? 0 : 1, transition: "opacity 0.6s ease" }}
+        >
+          <LoadingScreen imageSrcs={ALL_IMAGES} onComplete={handleStart} />
+        </div>
+      )}
 
-      {/* Gradient vignette overlay */}
-      <Overlay />
-
-      {/* CTA button - opacity driven by ParallaxScene */}
-      <CTAButton ref={ctaRef} />
-
-      {/* =============================================
-          ADD MORE SECTIONS BELOW THIS LINE
-          (e.g. <AboutSection />, <WorkSection />, etc.)
-          They will appear after the parallax sequence.
-          ============================================= */}
-    </div>
+      {/* Parallax scene — always mounted so images are ready, but hidden until started */}
+      <div
+        className={styles.app}
+        style={{
+          height: `${SCROLL_CONFIG.totalViewportMultiplier * 100}vh`,
+          minHeight: `${SCROLL_CONFIG.totalViewportMultiplier * 1000}px`,
+          backgroundImage: `url('${BACKGROUND_CONFIG.src}')`,
+          // Hide until user clicks Start Now
+          visibility: started ? "visible" : "hidden",
+        }}
+      >
+        <ParallaxScene ctaRef={ctaRef} />
+        <Overlay />
+        <CTAButton ref={ctaRef} />
+      </div>
+    </>
   );
 }
