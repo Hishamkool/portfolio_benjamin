@@ -21,6 +21,12 @@ export const SCROLL_CONFIG = {
 // speed: how fast this layer moves (higher = more parallax offset)
 // baseRange: the total pixel range of movement
 export const LAYERS = [
+  {
+    id: "layer8",
+    src: "/assets/8.png",
+    speed: 0.22, // ← was 0.3, now slower than layer7
+    baseRange: 2200, // ← smaller range, subtle drift
+  },
   { id: "layer7", src: "/assets/7.png", speed: 0.12, baseRange: 2000 },
   { id: "layer6", src: "/assets/6.png", speed: 0.22, baseRange: 2200 },
   { id: "layer5", src: "/assets/5.png", speed: 0.34, baseRange: 2400 },
@@ -111,5 +117,5 @@ export const CTA_CONFIG = {
 
 // --- BACKGROUND ---
 export const BACKGROUND_CONFIG = {
-  src: "/assets/8.png", // Fixed background image
+  src: "/assets/9.png", // Fixed background image
 };
