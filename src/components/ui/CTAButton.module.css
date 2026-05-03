@@ -1,6 +1,6 @@
 .button {
   position: fixed;
-  bottom: 80px;
+  bottom: 15vh;
   left: 50%;
   transform: translateX(-50%);
   font-family: var(--font-main);

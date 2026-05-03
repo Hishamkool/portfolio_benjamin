@@ -20,27 +20,90 @@ export default function ParallaxScene({ ctaRef }) {
   const cloudRefs = useRef(CLOUDS.map(() => ({ current: null })));
   const textRefs = useRef(TEXT_CARDS.map(() => ({ current: null })));
 
+  // const onFrame = useCallback(
+  //   (progress) => {
+  //     const vh = window.innerHeight;
+  //     const zoom = calcZoomScale(progress);
+
+  //     // Drive ALL 8 image layers
+  //     LAYERS.forEach((layer, i) => {
+  //       const el = layerRefs.current[i]?.current;
+  //       if (!el) return;
+  //       const offsetY = calcLayerOffset(
+  //         progress,
+  //         layer.speed,
+  //         layer.baseRange,
+  //         vh,
+  //       );
+  //       const depthFactor = 0.7 + (i / LAYERS.length) * 0.5;
+  //       const layerZoom = 1 + (zoom - 1) * depthFactor;
+  //       el.style.transform = `translate(-50%, calc(-50% + ${offsetY}px)) scale(${layerZoom})`;
+  //     });
+
+  //     // Drive clouds
+  //     CLOUDS.forEach((cloud, i) => {
+  //       const el = cloudRefs.current[i]?.current;
+  //       if (!el) return;
+  //       const { x, y } = calcCloudPosition(progress, cloud);
+  //       el.style.left = `${x}%`;
+  //       el.style.top = `${y}%`;
+  //     });
+
+  //     // Drive text opacity
+  //     TEXT_CARDS.forEach((card, i) => {
+  //       const el = textRefs.current[i]?.current;
+  //       if (!el) return;
+  //       el.style.opacity = calcTextOpacity(
+  //         progress,
+  //         card.fadeStart,
+  //         card.fadeEnd,
+  //       );
+  //     });
+
+  //     // Drive CTA button
+  //     if (ctaRef?.current) {
+  //       let btnOpacity = 0;
+  //       if (progress >= 0.7) {
+  //         const t = Math.min(1, (progress - 0.7) / 0.2);
+  //         btnOpacity = Math.sin((t * Math.PI) / 2);
+  //       }
+  //       ctaRef.current.style.opacity = btnOpacity;
+  //     }
+  //   },
+  //   [ctaRef],
+  // );
   const onFrame = useCallback(
     (progress) => {
       const vh = window.innerHeight;
       const zoom = calcZoomScale(progress);
 
-      // Drive ALL 8 image layers
       LAYERS.forEach((layer, i) => {
         const el = layerRefs.current[i]?.current;
         if (!el) return;
-        const offsetY = calcLayerOffset(
+
+        let offsetY = calcLayerOffset(
           progress,
           layer.speed,
           layer.baseRange,
           vh,
         );
-        const depthFactor = 0.7 + (i / LAYERS.length) * 0.5;
-        const layerZoom = 1 + (zoom - 1) * depthFactor;
+        let layerZoom = 1 + (zoom - 1) * (0.7 + (i / LAYERS.length) * 0.5);
+
+        // ── CAVE REVEAL: layer1 (index 7) slides down at end of scroll ──
+        if (layer.isForeground && progress > 0.65) {
+          // How far into the "cave reveal" phase are we (0 to 1)
+          const caveProgress = (progress - 0.65) / 0.35; // 0.65→1.0 maps to 0→1
+          const eased = 1 - Math.pow(1 - caveProgress, 2); // ease-out curve
+
+          // Push layer1 DOWN by up to 80% of screen height
+          const caveSlide = eased * vh * 0.8;
+          offsetY += caveSlide;
+        }
+
         el.style.transform = `translate(-50%, calc(-50% + ${offsetY}px)) scale(${layerZoom})`;
       });
 
-      // Drive clouds
+      // Clouds
       CLOUDS.forEach((cloud, i) => {
         const el = cloudRefs.current[i]?.current;
         if (!el) return;
@@ -49,7 +112,7 @@ export default function ParallaxScene({ ctaRef }) {
         el.style.top = `${y}%`;
       });
 
-      // Drive text opacity
+      // Text cards
       TEXT_CARDS.forEach((card, i) => {
         const el = textRefs.current[i]?.current;
         if (!el) return;
@@ -60,11 +123,11 @@ export default function ParallaxScene({ ctaRef }) {
         );
       });
 
-      // Drive CTA button
+      // CTA button — fades in inside the cave
       if (ctaRef?.current) {
         let btnOpacity = 0;
-        if (progress >= 0.7) {
-          const t = Math.min(1, (progress - 0.7) / 0.2);
+        if (progress >= 0.75) {
+          const t = Math.min(1, (progress - 0.75) / 0.2);
           btnOpacity = Math.sin((t * Math.PI) / 2);
         }
         ctaRef.current.style.opacity = btnOpacity;
@@ -72,7 +135,6 @@ export default function ParallaxScene({ ctaRef }) {
     },
     [ctaRef],
   );
-
   useParallaxScroll(onFrame);
 
   return (

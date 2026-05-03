@@ -7,9 +7,15 @@
 // --- ZOOM SETTINGS ---
 export const ZOOM_CONFIG = {
   start: 0.5, // scroll progress when zoom begins (0 to 1)
-  max: 1.4, // maximum zoom scale
+  max: 1, // maximum zoom scale
   easing: 0.08, // lerp smoothing factor (lower = smoother/slower)
 };
+// Also adjust zoom — we'll disable global zoom since we're doing custom cave effect
+// export const ZOOM_CONFIG = {
+//   start: 0.5,
+//   max: 1.0, // ← set to 1.0 to DISABLE the generic zoom (no more uniform scale-up)
+//   easing: 0.08,
+// };
 
 // --- SCROLL SETTINGS ---
 export const SCROLL_CONFIG = {
@@ -35,7 +41,13 @@ export const LAYERS = [
   // { id: "layer2", src: "/assets/2.png", speed: 0.6, baseRange: 10000 },
   // { id: 'layer3', src: '/assets/3.png', speed: 0.75, baseRange: 3000 },
   { id: "layer3", src: "/assets/3.png", speed: 0.5, baseRange: 1900 },
-  { id: "layer1", src: "/assets/1.png", speed: 0.92, baseRange: 3200 },
+  {
+    id: "layer1",
+    src: "/assets/1.png",
+    speed: 0.92,
+    baseRange: 3200,
+    isForeground: true,
+  },
 ];
 
 // --- CLOUD LAYERS ---
