@@ -87,17 +87,26 @@ export default function ParallaxScene({ ctaRef }) {
           layer.baseRange,
           vh,
         );
-        let layerZoom = 1 + (zoom - 1) * (0.7 + (i / LAYERS.length) * 0.5);
+        const depthFactor = 0.7 + (i / LAYERS.length) * 0.5;
+        const layerZoom = 1 + (zoom - 1) * depthFactor;
 
-        // ── CAVE REVEAL: layer1 (index 7) slides down at end of scroll ──
+        // ── BOTTOM CLAMP — prevents gap appearing at bottom ──
+        // ── BOTTOM CLAMP — prevents gap at bottom ──
+        if (layer.sticksToBottom) {
+          const imageHeight = el.naturalHeight * (el.width / el.naturalWidth);
+          // ↑ actual rendered height based on natural aspect ratio at current width
+
+          const imageHalfHeight = (imageHeight * layerZoom) / 2;
+          const minOffsetY = vh / 2 - imageHalfHeight;
+          offsetY = Math.max(offsetY, minOffsetY);
+        }
+
+        // ── CAVE REVEAL — layer1 slides down at end of scroll ──
         if (layer.isForeground && progress > 0.65) {
-          // How far into the "cave reveal" phase are we (0 to 1)
-          const caveProgress = (progress - 0.65) / 0.35; // 0.65→1.0 maps to 0→1
-          const eased = 1 - Math.pow(1 - caveProgress, 2); // ease-out curve
-
-          // Push layer1 DOWN by up to 80% of screen height
+          const caveProgress = (progress - 0.65) / 0.35;
+          const eased = 1 - Math.pow(1 - caveProgress, 2);
           const caveSlide = eased * vh * 0.8;
-          offsetY += caveSlide;
+          offsetY += caveSlide; // intentional slide — no clamp applied here
         }
 
         el.style.transform = `translate(-50%, calc(-50% + ${offsetY}px)) scale(${layerZoom})`;

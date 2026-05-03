@@ -30,16 +30,45 @@ export const LAYERS = [
   {
     id: "layer8",
     src: "/assets/8.png",
-    speed: 0.22, // ← was 0.3, now slower than layer7
-    baseRange: 2200, // ← smaller range, subtle drift
+    speed: 0.22,
+    baseRange: 2200,
+    sticksToBottom: true,
   },
-  { id: "layer7", src: "/assets/7.png", speed: 0.12, baseRange: 2000 },
-  { id: "layer6", src: "/assets/6.png", speed: 0.22, baseRange: 2200 },
-  { id: "layer5", src: "/assets/5.png", speed: 0.34, baseRange: 2400 },
-  { id: "layer4", src: "/assets/4.png", speed: 0.46, baseRange: 2600 },
-  { id: "layer2", src: "/assets/2.png", speed: 0.6, baseRange: 2800 },
-  // { id: "layer2", src: "/assets/2.png", speed: 0.6, baseRange: 10000 },
-  // { id: 'layer3', src: '/assets/3.png', speed: 0.75, baseRange: 3000 },
+  {
+    id: "layer7",
+    src: "/assets/7.png",
+    speed: 0.12,
+    baseRange: 2000,
+    sticksToBottom: true,
+  },
+  {
+    id: "layer6",
+    src: "/assets/6.png",
+    speed: 0.22,
+    baseRange: 2200,
+    sticksToBottom: true,
+  },
+  {
+    id: "layer5",
+    src: "/assets/5.png",
+    speed: 0.34,
+    baseRange: 2400,
+    sticksToBottom: true,
+  },
+  {
+    id: "layer4",
+    src: "/assets/4.png",
+    speed: 0.46,
+    baseRange: 2600,
+    sticksToBottom: true,
+  },
+  {
+    id: "layer2",
+    src: "/assets/2.png",
+    speed: 0.6,
+    baseRange: 2800,
+    sticksToBottom: true,
+  },
   { id: "layer3", src: "/assets/3.png", speed: 0.5, baseRange: 1900 },
   {
     id: "layer1",
@@ -47,6 +76,7 @@ export const LAYERS = [
     speed: 0.92,
     baseRange: 3200,
     isForeground: true,
+    sticksToBottom: true,
   },
 ];
 
