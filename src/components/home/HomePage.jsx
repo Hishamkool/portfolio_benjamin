@@ -26,14 +26,14 @@ const MAP_ITEMS = [
     label: "Projects",
     videoSrc: "/assets/home/house_turn.mp4",
     // Position: cabin — top-left area
-    position: { top: "22%", left: "13%", width: "220px" },
+    position: { top: "-4.2%", left: "3.5%", width: "22.9%" },
   },
   {
     id: "about",
     label: "About the artist",
     videoSrc: "/assets/home/boy_playing.mp4",
     // Position: person — center area
-    position: { top: "28%", left: "33%", width: "160px" },
+    position: { top: "13.4%", left: "29.1%", width: "15.1%" },
   },
   {
     id: "services",
@@ -41,15 +41,15 @@ const MAP_ITEMS = [
     videoSrc: null,
     imageSrc: null,
     // Position: building — center-right area
-    position: { top: "18%", left: "58%", width: "240px" },
-    disabled: true, // placeholder — coming soon
+    position: { top: "29.6%", left: "47.0%", width: "31.9%" },
+    disabled: false, // placeholder — coming soon
   },
   {
     id: "contact",
     label: "Contact",
     videoSrc: "/assets/home/ship_loop.mp4",
     // Position: ship — top-right area
-    position: { top: "12%", left: "78%", width: "220px" },
+    position: { top: "-10%", left: "76.9%", width: "23.1%" },
   },
 ];
 
