@@ -6,8 +6,8 @@
 
 // --- ZOOM SETTINGS ---
 export const ZOOM_CONFIG = {
-  start: 0.5, // scroll progress when zoom begins (0 to 1)
-  max: 1, // maximum zoom scale
+  start: 0.8, // scroll progress when zoom begins (0 to 1)
+  max: 1.1, // maximum zoom scale
   easing: 0.08, // lerp smoothing factor (lower = smoother/slower)
 };
 // Also adjust zoom — we'll disable global zoom since we're doing custom cave effect
@@ -74,7 +74,7 @@ export const LAYERS = [
     id: "layer1",
     src: "/assets/1.png",
     speed: 0.5,
-    baseRange: 3000,
+    baseRange: 2000,
     // isForeground: true,
     sticksToBottom: true,
   },
