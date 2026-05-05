@@ -102,12 +102,12 @@ export default function ParallaxScene({ ctaRef }) {
         }
 
         // ── CAVE REVEAL — layer1 slides down at end of scroll ──
-        if (layer.isForeground && progress > 0.65) {
-          const caveProgress = (progress - 0.65) / 0.35;
-          const eased = 1 - Math.pow(1 - caveProgress, 2);
-          const caveSlide = eased * vh * 0.8;
-          offsetY += caveSlide; // intentional slide — no clamp applied here
-        }
+        // if (layer.isForeground && progress > 0.65) {
+        //   const caveProgress = (progress - 0.65) / 0.35;
+        //   const eased = 1 - Math.pow(1 - caveProgress, 2);
+        //   const caveSlide = eased * vh * 0.8;
+        //   offsetY += caveSlide; // intentional slide — no clamp applied here
+        // }
 
         el.style.transform = `translate(-50%, calc(-50% + ${offsetY}px)) scale(${layerZoom})`;
       });
