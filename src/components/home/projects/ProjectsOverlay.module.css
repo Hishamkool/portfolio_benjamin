@@ -1,0 +1,186 @@
+/* ── Backdrop — blurred map behind ── */
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(180, 210, 230, 0.25);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ── Main overlay container ── */
+.overlay {
+  display: flex;
+  width: 90vw;
+  max-width: 1260px;
+  height: 85vh;
+  border-radius: 24px;
+  overflow: hidden;
+  animation: slideUp 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.18);
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ── LEFT SIDEBAR ── */
+.sidebar {
+  width: 240px;
+  min-width: 240px;
+
+  /* background: rgba(200, 225, 240, 0.45); */
+  background: linear-gradient(
+    173.6deg,
+    rgba(224, 224, 224, 0.08) 1.36%,
+    rgba(17, 160, 176, 0.4) 97.19%
+  );
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-right: 1px solid rgba(255, 255, 255, 0.4);
+  display: flex;
+  flex-direction: column;
+  padding: 28px 20px 28px 20px;
+  gap: 24px;
+}
+
+/* Back button
+.backBtn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(0, 0, 0, 0.15);
+  background: rgba(255, 255, 255, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #333;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+  flex-shrink: 0;
+}
+
+.backBtn:hover {
+  background: rgba(255, 255, 255, 0.85);
+  transform: scale(1.08);
+} */
+.backBtn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(180, 190, 200, 0.45);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #444;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+  flex-shrink: 0;
+}
+
+.backBtn:hover {
+  background: rgba(180, 190, 200, 0.7);
+  transform: scale(1.08);
+}
+/* Category tabs */
+.tabs {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tab {
+  width: 100%;
+  padding: 10px 16px;
+  border-radius: 12px;
+  border: none;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #2a2a2a;
+  font-family: "DM Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    transform 0.15s ease;
+  letter-spacing: 0.01em;
+}
+
+.tab:hover:not(.tabActive) {
+  background: rgba(255, 255, 255, 0.45);
+}
+
+/* Active tab — white background like Figma */
+.tabActive {
+  background: #ffffff !important;
+  color: #111;
+  font-weight: 600;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* ── RIGHT PANEL ── */
+.panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  /* background: rgba(220, 235, 245, 0.5); */
+  background: #ffffff4d;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  overflow: hidden;
+}
+
+/* Header */
+.header {
+  padding: 28px 32px 20px 32px;
+  flex-shrink: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.title {
+  font-family: "DM Sans", sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #111;
+  margin: 0 0 8px 0;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  font-family: "DM Sans", sans-serif;
+  font-size: 14px;
+  color: #555;
+  line-height: 1.6;
+  margin: 0;
+  max-width: 560px;
+}
