@@ -24,35 +24,41 @@ const MAP_ITEMS = [
   {
     id: "projects",
     label: "Projects",
-    videoSrc: "/assets/home/house_turn.mp4",
-    // videoSrc: "/assets/home/home_withoutbg.webm", // changed to without bg version
-    // Position: cabin — top-left area
+    // videoSrc: "/assets/home/house_turn.mp4",
     position: { top: "-4.2%", left: "3.5%", width: "22.9%" },
-    // position: { top: "0%", left: "0%", width: "22.9%" },
+
+    videoSrc: "/assets/home/house_withoutbg.webm",
   },
   {
     id: "about",
     label: "About the artist",
+    /* 
     videoSrc: "/assets/home/boy_playing.mp4",
-    // videoSrc: "/assets/home/boy_withoutbg.webm",
-    // Position: person — center area
-    position: { top: "13.4%", left: "29.1%", width: "15.1%" },
+    position: { top: "13.4%", left: "29.1%", width: "15.1%" }, 
+    */
+
+    videoSrc: "/assets/home/boy_withoutbg.webm",
+    position: { top: "16.4%", left: "31.1%", width: "15.1%" },
   },
   {
     id: "services",
     label: "Services",
-    videoSrc: null,
+    videoSrc: "/assets/home/services_withoutbg.webm",
+    position: { top: "20.6%", left: "47.0%", width: "31.9%" },
     imageSrc: null,
-    // Position: building — center-right area
-    position: { top: "29.6%", left: "47.0%", width: "31.9%" },
+
     disabled: false, // placeholder — coming soon
   },
   {
     id: "contact",
     label: "Contact",
+    /* 
     videoSrc: "/assets/home/ship_loop.mp4",
-    // Position: ship — top-right area
     position: { top: "-10%", left: "76.9%", width: "23.1%" },
+     */
+
+    videoSrc: "/assets/home/ship_withoutbg.webm",
+    position: { top: "-30%", left: "76.9%", width: "23.1%" },
   },
 ];
 
@@ -72,7 +78,8 @@ export default function HomePage({
       {/* Snow map background */}
       <div className={styles.mapContainer}>
         <img
-          src="/assets/home/map_bg.png"
+          // src="/assets/home/map_bg.png"
+          src="/assets/home/empty_map_bg.png"
           alt="Portfolio Map"
           className={styles.mapBg}
           draggable={false}
