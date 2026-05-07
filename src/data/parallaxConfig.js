@@ -6,7 +6,7 @@
 
 // --- ZOOM SETTINGS ---
 export const ZOOM_CONFIG = {
-  start: 0.9, // scroll progress when zoom begins (0 to 1)
+  start: 0.8, // scroll progress when zoom begins (0 to 1)
   max: 1.1, // maximum zoom scale
   easing: 0.08, // lerp smoothing factor (lower = smoother/slower)
 };

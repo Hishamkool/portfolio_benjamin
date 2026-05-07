@@ -85,7 +85,7 @@
   display: block;
   /* opacity: 0.5; */
   object-fit: contain;
-  mix-blend-mode: multiply; /* ← removes white, blends with map */
+  /* mix-blend-mode: multiply;  */
   background: transparent;
 }
 

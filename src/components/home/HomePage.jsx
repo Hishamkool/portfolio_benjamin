@@ -25,13 +25,16 @@ const MAP_ITEMS = [
     id: "projects",
     label: "Projects",
     videoSrc: "/assets/home/house_turn.mp4",
+    // videoSrc: "/assets/home/home_withoutbg.webm", // changed to without bg version
     // Position: cabin — top-left area
     position: { top: "-4.2%", left: "3.5%", width: "22.9%" },
+    // position: { top: "0%", left: "0%", width: "22.9%" },
   },
   {
     id: "about",
     label: "About the artist",
     videoSrc: "/assets/home/boy_playing.mp4",
+    // videoSrc: "/assets/home/boy_withoutbg.webm",
     // Position: person — center area
     position: { top: "13.4%", left: "29.1%", width: "15.1%" },
   },
