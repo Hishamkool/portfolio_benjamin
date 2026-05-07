@@ -6,7 +6,7 @@
 
 // --- ZOOM SETTINGS ---
 export const ZOOM_CONFIG = {
-  start: 0.8, // scroll progress when zoom begins (0 to 1)
+  start: 0.9, // scroll progress when zoom begins (0 to 1)
   max: 1.1, // maximum zoom scale
   easing: 0.08, // lerp smoothing factor (lower = smoother/slower)
 };
@@ -66,15 +66,15 @@ export const LAYERS = [
     id: "layer2",
     src: "/assets/2.png",
     speed: 0.6,
-    baseRange: 3000,
+    baseRange: 2000,
     sticksToBottom: true,
   },
   { id: "layer3", src: "/assets/3.png", speed: 0.5, baseRange: 1900 },
   {
     id: "layer1",
     src: "/assets/1.png",
-    speed: 0.5,
-    baseRange: 2000,
+    speed: 0.6,
+    baseRange: 3000,
     // isForeground: true,
     sticksToBottom: true,
   },

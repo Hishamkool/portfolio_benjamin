@@ -11,7 +11,12 @@ import {
   calcTextOpacity,
   calcCloudPosition,
 } from "../../hooks/useParallaxScroll";
-import { LAYERS, CLOUDS, TEXT_CARDS } from "../../data/parallaxConfig";
+import {
+  LAYERS,
+  CLOUDS,
+  TEXT_CARDS,
+  ZOOM_CONFIG,
+} from "../../data/parallaxConfig";
 import styles from "./ParallaxScene.module.css";
 
 export default function ParallaxScene({ ctaRef }) {
@@ -77,7 +82,7 @@ export default function ParallaxScene({ ctaRef }) {
       const vh = window.innerHeight;
       const zoom = calcZoomScale(progress);
 
-      LAYERS.forEach((layer, i) => {
+      /* LAYERS.forEach((layer, i) => {
         const el = layerRefs.current[i]?.current;
         if (!el) return;
 
@@ -108,6 +113,34 @@ export default function ParallaxScene({ ctaRef }) {
         //   const caveSlide = eased * vh * 0.8;
         //   offsetY += caveSlide; // intentional slide — no clamp applied here
         // }
+
+        el.style.transform = `translate(-50%, calc(-50% + ${offsetY}px)) scale(${layerZoom})`;
+      }); */
+
+      // In ParallaxScene.jsx, inside LAYERS.forEach:
+      LAYERS.forEach((layer, i) => {
+        const el = layerRefs.current[i]?.current;
+        if (!el) return;
+
+        // ── Clamp parallax to stop at zoom start point ──
+        const parallaxProgress = Math.min(progress, ZOOM_CONFIG.start);
+
+        let offsetY = calcLayerOffset(
+          parallaxProgress,
+          layer.speed,
+          layer.baseRange,
+          vh,
+        );
+        const depthFactor = 0.7 + (i / LAYERS.length) * 0.5;
+        const layerZoom = 1 + (zoom - 1) * depthFactor;
+
+        // ── Bottom clamp ──
+        if (layer.sticksToBottom) {
+          const imageHeight = el.naturalHeight * (el.width / el.naturalWidth);
+          const imageHalfHeight = (imageHeight * layerZoom) / 2;
+          const minOffsetY = vh / 2 - imageHalfHeight;
+          offsetY = Math.max(offsetY, minOffsetY);
+        }
 
         el.style.transform = `translate(-50%, calc(-50% + ${offsetY}px)) scale(${layerZoom})`;
       });
