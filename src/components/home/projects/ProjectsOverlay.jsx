@@ -43,7 +43,7 @@ export default function ProjectsOverlay({ onClose }) {
               <path d="M11.5 6.5L8 10l3.5 3.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </button> */}
-          <button
+          {/* <button
             className={styles.backBtn}
             onClick={onClose}
             aria-label="Close"
@@ -57,6 +57,14 @@ export default function ProjectsOverlay({ onClose }) {
                 strokeLinejoin="round"
               />
             </svg>
+          </button> */}
+
+          <button
+            className={styles.backBtn}
+            onClick={onClose}
+            aria-label="Close"
+          >
+            <img src="/assets/home/back_btn.svg" alt="Back" />
           </button>
 
           {/* Category tabs */}

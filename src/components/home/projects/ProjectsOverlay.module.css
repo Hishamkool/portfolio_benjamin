@@ -50,65 +50,65 @@
   min-width: 240px;
 
   /* background: rgba(200, 225, 240, 0.45); */
-  background: linear-gradient(
+  /* background: rgba(200, 210, 218, 0.35); ← neutral grey, not teal */
+  /* background: linear-gradient(
     173.6deg,
     rgba(224, 224, 224, 0.08) 1.36%,
     rgba(17, 160, 176, 0.4) 97.19%
   );
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-right: 1px solid rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-right: 1px solid rgba(255, 255, 255, 0.25); */
+
   display: flex;
   flex-direction: column;
   padding: 28px 20px 28px 20px;
   gap: 24px;
 }
+.sidebar {
+  /* Glass background */
+  background: linear-gradient(
+    173.6deg,
+    rgba(224, 224, 224, 0.08) 1.36%,
+    rgba(17, 160, 176, 0.4) 97.19%
+  );
 
-/* Back button
-.backBtn {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border: 1.5px solid rgba(0, 0, 0, 0.15);
-  background: rgba(255, 255, 255, 0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  color: #333;
-  transition:
-    background 0.2s ease,
-    transform 0.2s ease;
-  flex-shrink: 0;
+  /* Glass blur / refraction */
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+
+  overflow: hidden;
 }
 
-.backBtn:hover {
-  background: rgba(255, 255, 255, 0.85);
-  transform: scale(1.08);
-} */
 .backBtn {
   width: 36px;
   height: 36px;
-  border-radius: 50%;
   border: none;
-  background: rgba(180, 190, 200, 0.45);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  background: none;
+  padding: 0;
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
-  color: #444;
   transition:
-    background 0.2s ease,
-    transform 0.2s ease;
+    transform 0.2s ease,
+    opacity 0.2s ease;
   flex-shrink: 0;
 }
 
 .backBtn:hover {
-  background: rgba(180, 190, 200, 0.7);
   transform: scale(1.08);
+  opacity: 0.85;
+  border: white solid 2px;
+
+  border-radius: 50px;
 }
+
+.backBtn img {
+  width: 100%;
+  height: 100%;
+}
+
 /* Category tabs */
 .tabs {
   display: flex;
