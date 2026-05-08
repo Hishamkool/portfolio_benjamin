@@ -28,6 +28,7 @@ const MAP_ITEMS = [
     position: { top: "-4.2%", left: "3.5%", width: "22.9%" },
 
     videoSrc: "/assets/home/house_withoutbg.webm",
+    clip: { top: "40%", bottom: "50%" },
   },
   {
     id: "about",

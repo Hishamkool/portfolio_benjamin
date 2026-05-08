@@ -1,5 +1,5 @@
-import { useRef, useState } from 'react';
-import styles from './MapItem.module.css';
+import { useRef, useState } from "react";
+import styles from "./MapItem.module.css";
 
 /**
  * MapItem
@@ -24,6 +24,7 @@ export default function MapItem({
   style,
   onClick,
   disabled = false,
+  clip, // ← add this
 }) {
   const videoRef = useRef(null);
   const [hovered, setHovered] = useState(false);
@@ -44,7 +45,7 @@ export default function MapItem({
 
   return (
     <div
-      className={`${styles.item} ${hovered ? styles.hovered : ''} ${disabled ? styles.disabled : ''}`}
+      className={`${styles.item} ${hovered ? styles.hovered : ""} ${disabled ? styles.disabled : ""}`}
       style={style}
       onClick={!disabled ? onClick : undefined}
       onMouseEnter={handleMouseEnter}
@@ -57,7 +58,18 @@ export default function MapItem({
       </div>
 
       {/* Video or image */}
-      <div className={styles.media}>
+      <div
+        className={styles.media}
+        style={
+          clip
+            ? {
+                marginTop: `-${clip.top || "0%"}`,
+                marginBottom: `-${clip.bottom || "0%"}`,
+                overflow: "hidden",
+              }
+            : undefined
+        }
+      >
         {videoSrc ? (
           <video
             ref={videoRef}
