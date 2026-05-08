@@ -103,7 +103,7 @@ export const CLOUDS = [
     moveType: "rtl",
     startX: 70,
     endX: -70,
-    yPercent: 48,
+    yPercent: 55,
     speedMult: 0.8,
     opacity: 0.75,
     width: 700,
