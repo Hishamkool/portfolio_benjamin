@@ -1,35 +1,43 @@
-import { useState } from 'react';
-import ProjectItem from './ProjectItem';
-import styles from './ProjectGrid.module.css';
+import { useMemo, useState } from "react";
+import MarqueeRow from "./MarqueeRow";
+import ExpandedProjectModal from "./ExpandedProjectModal";
+import styles from "./ProjectGrid.module.css";
 
-/**
- * ProjectGrid
- *
- * A CSS grid that supports individual item expansion.
- * Expanded items span 2 columns × 2 rows.
- *
- * Props:
- *   projects - filtered array of project objects
- */
+const ITEMS_PER_ROW = 6;
+
 export default function ProjectGrid({ projects }) {
-  const [expandedId, setExpandedId] = useState(null);
+  const [expandedProject, setExpandedProject] = useState(null);
 
-  const handleToggle = (id) => {
-    setExpandedId(prev => prev === id ? null : id);
-  };
+  const rows = useMemo(() => {
+    const result = [];
+
+    for (let i = 0; i < projects.length; i += ITEMS_PER_ROW) {
+      result.push(projects.slice(i, i + ITEMS_PER_ROW));
+    }
+
+    return result;
+  }, [projects]);
 
   return (
-    <div className={styles.scrollArea}>
-      <div className={styles.grid}>
-        {projects.map(project => (
-          <ProjectItem
-            key={project.id}
-            project={project}
-            isExpanded={expandedId === project.id}
-            onToggle={() => handleToggle(project.id)}
-          />
-        ))}
+    <>
+      <div className={styles.scrollArea}>
+        <div className={styles.rows}>
+          {rows.map((row, index) => (
+            <MarqueeRow
+              key={index}
+              projects={row}
+              direction={index % 2 === 0 ? "ltr" : "rtl"}
+              speed={28 + index * 4}
+              onProjectClick={setExpandedProject}
+            />
+          ))}
+        </div>
       </div>
-    </div>
+
+      <ExpandedProjectModal
+        project={expandedProject}
+        onClose={() => setExpandedProject(null)}
+      />
+    </>
   );
 }

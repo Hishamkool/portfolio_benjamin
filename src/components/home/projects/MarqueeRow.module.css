@@ -1,0 +1,45 @@
+.rowWrapper {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.track {
+  display: flex;
+  gap: 12px;
+  width: max-content;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.track:hover {
+  animation-play-state: paused;
+}
+
+.ltr {
+  animation-name: marqueeLTR;
+}
+
+.rtl {
+  animation-name: marqueeRTL;
+}
+
+@keyframes marqueeLTR {
+  from {
+    transform: translateX(-50%);
+  }
+
+  to {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes marqueeRTL {
+  from {
+    transform: translateX(0%);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}

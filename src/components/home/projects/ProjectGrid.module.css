@@ -1,31 +1,14 @@
-/* Scrollable wrapper */
 .scrollArea {
   flex: 1;
   overflow-y: auto;
-  padding: 20px 32px 32px 32px;
+  padding: 24px 32px 40px;
 
-  /* Custom scrollbar */
   scrollbar-width: thin;
-  scrollbar-color: rgba(0, 0, 0, 0.15) transparent;
+  scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
 }
 
-.scrollArea::-webkit-scrollbar {
-  width: 6px;
-}
-
-.scrollArea::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.scrollArea::-webkit-scrollbar-thumb {
-  background: rgba(0, 0, 0, 0.15);
-  border-radius: 3px;
-}
-
-/* 4-column grid */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-auto-rows: 180px;
-  gap: 8px;
+.rows {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
 }
