@@ -47,4 +47,3 @@ export const PROJECTS = [
   { id: 33, src: "/assets/projects/p33.jpg", category: "3d" },
   { id: 34, src: "/assets/projects/p34.mp4", category: "motion" },
 ];
-//test
