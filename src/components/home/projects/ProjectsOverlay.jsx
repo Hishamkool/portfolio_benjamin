@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { CATEGORIES, PROJECTS } from "../../../data/projectsData";
 import ProjectGrid from "./ProjectGrid";
+import ClassicProjectGrid from "./ClassicProjectGrid";
 import styles from "./ProjectsOverlay.module.css";
 
 /**
@@ -36,29 +37,6 @@ export default function ProjectsOverlay({ onClose }) {
       <div className={styles.overlay}>
         {/* ── LEFT SIDEBAR ── */}
         <aside className={styles.sidebar}>
-          {/* Back arrow */}
-          {/* <button className={styles.backBtn} onClick={onClose} aria-label="Close">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-              <circle cx="10" cy="10" r="9" stroke="currentColor" strokeWidth="1.5"/>
-              <path d="M11.5 6.5L8 10l3.5 3.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </button> */}
-          {/* <button
-            className={styles.backBtn}
-            onClick={onClose}
-            aria-label="Close"
-          >
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <path
-                d="M10 3L5 8l5 5"
-                stroke="currentColor"
-                strokeWidth="1.8"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </button> */}
-
           <button
             className={styles.backBtn}
             onClick={onClose}
@@ -95,7 +73,11 @@ export default function ProjectsOverlay({ onClose }) {
           </div>
 
           {/* Scrollable grid */}
-          <ProjectGrid projects={filtered} />
+          {activeCategory === "all" ? (
+            <ProjectGrid projects={filtered} />
+          ) : (
+            <ClassicProjectGrid projects={filtered} />
+          )}
         </main>
       </div>
     </div>

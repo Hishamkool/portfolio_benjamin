@@ -23,6 +23,7 @@ export default function MarqueeRow({
           <ProjectItem
             key={`${project.id}-${index}`}
             project={project}
+            variant="marquee"
             onClick={() => onProjectClick(project)}
           />
         ))}
