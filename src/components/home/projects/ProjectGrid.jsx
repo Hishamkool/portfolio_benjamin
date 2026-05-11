@@ -1,3 +1,5 @@
+// THIS IS ACTUALLY MARQUEE PROJECT GALLARY USED FOR ALL PROJECTS , NOT GRID ANYMORE
+
 import { useMemo, useState } from "react";
 import MarqueeRow from "./MarqueeRow";
 import ExpandedProjectModal from "./ExpandedProjectModal";

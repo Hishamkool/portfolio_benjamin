@@ -26,4 +26,5 @@
   grid-auto-rows: 180px;
 
   gap: 10px;
+  grid-auto-flow: dense;
 }
