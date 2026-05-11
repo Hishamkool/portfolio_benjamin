@@ -23,7 +23,13 @@ ${isExpanded ? styles.expanded : ""}
 ${variant === "marquee" ? styles.marqueeItem : styles.gridItem}`}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      onClick={onClick}
+      onClick={() => {
+        if (variant === "grid" && onToggle) {
+          onToggle();
+        } else if (onClick) {
+          onClick();
+        }
+      }}
     >
       {type === "video" ? (
         <video
@@ -44,7 +50,7 @@ ${variant === "marquee" ? styles.marqueeItem : styles.gridItem}`}
       )}
 
       {/* Expand button only for classic grid */}
-      {onToggle && (
+      {variant === "grid" && onToggle && (
         <button
           className={`${styles.expandBtn} ${hovered ? styles.visible : ""}`}
           onClick={(e) => {
