@@ -10,7 +10,7 @@ export default function ExpandedProjectModal({ project, onClose }) {
     <div className={styles.wrapper}>
       {/* Close button */}
       <button className={styles.closeBtn} onClick={onClose} aria-label="Close">
-        ✕
+        <span style={{ fontSize: "18px", fontWeight: "700" }}>✕</span>
       </button>
 
       {/* Click empty area to close */}
