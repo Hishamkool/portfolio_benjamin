@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { CATEGORIES, PROJECTS } from "../../../data/projectsData";
+import { PROJECTS } from "../../../data/projectData.js";
+import { CATEGORIES } from "../../../data/categories.js";
 import ProjectGrid from "./ProjectGrid";
 import ClassicProjectGrid from "./ClassicProjectGrid";
 import styles from "./ProjectsOverlay.module.css";
