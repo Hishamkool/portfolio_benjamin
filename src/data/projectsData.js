@@ -12,7 +12,11 @@ export const CATEGORIES = [
 ];
 
 export const PROJECTS = [
-  { id: 1, src: "/assets/projects/p1.mp4", category: "motion" },
+  {
+    id: 1,
+    src: "https://res.cloudinary.com/dgz5ncqal/video/upload/v1778706314/Kaattu_Final_x9hu01.mp4",
+    category: "motion",
+  },
   { id: 2, src: "/assets/projects/p1.png", category: "illustration" },
   { id: 3, src: "/assets/projects/p2.png", category: "motion" },
   { id: 4, src: "/assets/projects/p3.png", category: "illustration" },

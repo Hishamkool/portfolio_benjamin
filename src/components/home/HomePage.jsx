@@ -25,10 +25,11 @@ const MAP_ITEMS = [
     id: "projects",
     label: "Projects",
     // videoSrc: "/assets/home/house_turn.mp4",
-    position: { top: "-4.2%", left: "3.5%", width: "22.9%" },
+    position: { top: "1.2%", left: "3.5%", width: "17.9%" },
 
-    videoSrc: "/assets/home/house_withoutbg.webm",
-    clip: { top: "40%", bottom: "50%" },
+    // videoSrc: "/assets/home/house_withoutbg.webm",
+    imageSrc: "/assets/home/house_jump_gif.gif",
+    // clip: { top: "40%", bottom: "50%" },
   },
   {
     id: "about",
@@ -91,6 +92,7 @@ export default function HomePage({
           <MapItem
             key={item.id}
             label={item.label}
+            clip={item.clip}
             videoSrc={item.videoSrc}
             imageSrc={item.imageSrc}
             style={item.position}

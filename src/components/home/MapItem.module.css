@@ -70,9 +70,9 @@
 .media {
   position: relative;
   width: 100%;
+  overflow: hidden;
   /* border: 1px solid black; */
-
-  /*   overflow: hidden;
+  /*   
   border-radius: 4px; */
 }
 
