@@ -17,8 +17,8 @@
 }
 /* if item is from all projects */
 .marqueeItem {
-  width: 320px;
-  aspect-ratio: 16/9;
+  aspect-ratio: 16 / 9;
+  max-width: 250px;
   flex-shrink: 0;
 }
 /* if item is form other categories  */

@@ -1,4 +1,4 @@
-import { useRef, useState, memo } from "react";
+import { useEffect, useRef, useState, memo } from "react";
 
 import styles from "./ProjectItem.module.css";
 
@@ -13,21 +13,38 @@ function ProjectItem({
 }) {
   const [hovered, setHovered] = useState(false);
 
-  const [isPlaying, setIsPlaying] = useState(false);
-
   const videoRef = useRef(null);
 
   const type = getMediaType(project.src);
 
-  const handlePlayVideo = (e) => {
-    e.stopPropagation();
+  // ============================================================
+  // AUTOPLAY ONLY WHEN ITEM IS VISIBLE
+  // ============================================================
 
-    if (!videoRef.current) return;
+  useEffect(() => {
+    if (type !== "video" || !videoRef.current) return;
 
-    videoRef.current.play();
+    const video = videoRef.current;
 
-    setIsPlaying(true);
-  };
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          video.play().catch(() => {});
+        } else {
+          video.pause();
+        }
+      },
+      {
+        threshold: 0.6,
+      },
+    );
+
+    observer.observe(video);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [type]);
 
   return (
     <div
@@ -57,12 +74,6 @@ function ProjectItem({
             preload="metadata"
             className={styles.media}
           />
-
-          {!isPlaying && (
-            <button className={styles.playButton} onClick={handlePlayVideo}>
-              ▶
-            </button>
-          )}
         </div>
       ) : (
         <img

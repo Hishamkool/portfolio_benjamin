@@ -1,45 +1,43 @@
 .rowWrapper {
-  overflow: hidden;
-  position: relative;
   width: 100%;
+
+  overflow: hidden;
 }
 
 .track {
   display: flex;
-  gap: 12px;
-  width: max-content;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-}
 
-.track:hover {
-  animation-play-state: paused;
+  gap: 14px;
+
+  width: max-content;
+
+  will-change: transform;
 }
 
 .ltr {
-  animation-name: marqueeLTR;
+  animation: marqueeLeft linear infinite;
 }
 
 .rtl {
-  animation-name: marqueeRTL;
+  animation: marqueeRight linear infinite;
 }
 
-@keyframes marqueeLTR {
-  from {
-    transform: translateX(-50%);
-  }
-
-  to {
-    transform: translateX(0%);
-  }
-}
-
-@keyframes marqueeRTL {
+@keyframes marqueeLeft {
   from {
     transform: translateX(0%);
   }
 
   to {
     transform: translateX(-50%);
+  }
+}
+
+@keyframes marqueeRight {
+  from {
+    transform: translateX(-50%);
+  }
+
+  to {
+    transform: translateX(0%);
   }
 }

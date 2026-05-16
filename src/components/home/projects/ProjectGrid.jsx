@@ -1,57 +1,44 @@
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 
 import MarqueeRow from "./MarqueeRow";
-
 import ExpandedProjectModal from "./ExpandedProjectModal";
 
 import styles from "./ProjectGrid.module.css";
 
-const ITEMS_PER_ROW = 3;
+// ============================================================
+// FIXED NUMBER OF ROWS
+// ============================================================
+
+const ROW_COUNT = 3;
 
 export default function ProjectGrid({ projects }) {
   const [expandedProject, setExpandedProject] = useState(null);
 
-  const [isScrolling, setIsScrolling] = useState(false);
-
   // ============================================================
-  // SPLIT PROJECTS INTO ROWS
+  // DISTRIBUTE ALL PROJECTS ACROSS FIXED ROWS
   // ============================================================
 
+  // const rows = useMemo(() => {
+  //   const result = Array.from({ length: ROW_COUNT }, () => []);
+
+  //   projects.forEach((project, index) => {
+  //     result[index % ROW_COUNT].push(project);
+  //   });
+
+  //   return result;
+  // }, [projects]);
   const rows = useMemo(() => {
-    const result = [];
+    // shuffle projects first
+    const shuffled = [...projects].sort(() => Math.random() - 0.5);
 
-    for (let i = 0; i < projects.length; i += ITEMS_PER_ROW) {
-      result.push(projects.slice(i, i + ITEMS_PER_ROW));
-    }
+    const result = Array.from({ length: ROW_COUNT }, () => []);
+
+    shuffled.forEach((project, index) => {
+      result[index % ROW_COUNT].push(project);
+    });
 
     return result;
   }, [projects]);
-
-  // ============================================================
-  // PAUSE MARQUEES WHILE SCROLLING
-  // ============================================================
-
-  useEffect(() => {
-    let scrollTimeout;
-
-    const handleScroll = () => {
-      setIsScrolling(true);
-
-      clearTimeout(scrollTimeout);
-
-      scrollTimeout = setTimeout(() => {
-        setIsScrolling(false);
-      }, 120);
-    };
-
-    window.addEventListener("scroll", handleScroll, {
-      passive: true,
-    });
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
 
   return (
     <>
@@ -62,8 +49,8 @@ export default function ProjectGrid({ projects }) {
               key={index}
               projects={row}
               direction={index % 2 === 0 ? "ltr" : "rtl"}
-              speed={28 + index * 4}
-              paused={isScrolling}
+              // speed={[55, 38, 62][index]} //different speed for each row
+              speed={40 + index} //same speed
               onProjectClick={setExpandedProject}
             />
           ))}
