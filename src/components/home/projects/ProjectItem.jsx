@@ -21,28 +21,60 @@ function ProjectItem({
   // AUTOPLAY ONLY WHEN ITEM IS VISIBLE
   // ============================================================
 
+  // useEffect(() => {
+  //   if (type !== "video" || !videoRef.current) return;
+
+  //   const video = videoRef.current;
+
+  //   const observer = new IntersectionObserver(
+  //     ([entry]) => {
+  //       if (entry.isIntersecting) {
+  //         video.play().catch(() => {});
+  //       } else {
+  //         video.pause();
+  //       }
+  //     },
+  //     {
+  //       threshold: 0.6,
+  //     },
+  //   );
+
+  //   observer.observe(video);
+
+  //   return () => {
+  //     observer.disconnect();
+  //   };
+  // }, [type]);
+
   useEffect(() => {
     if (type !== "video" || !videoRef.current) return;
 
     const video = videoRef.current;
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          video.play().catch(() => {});
-        } else {
-          video.pause();
-        }
-      },
-      {
-        threshold: 0.6,
-      },
-    );
+    let animationFrame;
 
-    observer.observe(video);
+    const checkVisibility = () => {
+      const rect = video.getBoundingClientRect();
+
+      const isVisible =
+        rect.right > 0 &&
+        rect.left < window.innerWidth &&
+        rect.bottom > 0 &&
+        rect.top < window.innerHeight;
+
+      if (isVisible) {
+        video.play().catch(() => {});
+      } else {
+        video.pause();
+      }
+
+      animationFrame = requestAnimationFrame(checkVisibility);
+    };
+
+    checkVisibility();
 
     return () => {
-      observer.disconnect();
+      cancelAnimationFrame(animationFrame);
     };
   }, [type]);
 
