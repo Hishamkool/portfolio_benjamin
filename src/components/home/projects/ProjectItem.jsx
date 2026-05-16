@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useEffect, useRef, useState, memo } from "react";
 
 import styles from "./ProjectItem.module.css";
 
 import { getMediaType } from "../../../utils/getMediaType";
 
-export default function ProjectItem({
+function ProjectItem({
   project,
   isExpanded,
   onToggle,
@@ -13,14 +13,46 @@ export default function ProjectItem({
 }) {
   const [hovered, setHovered] = useState(false);
 
+  const videoRef = useRef(null);
+
   const type = getMediaType(project.src);
+
+  // ============================================================
+  // PLAY VIDEO ONLY WHEN VISIBLE
+  // ============================================================
+
+  useEffect(() => {
+    if (type !== "video" || !videoRef.current) return;
+
+    const video = videoRef.current;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          video.play().catch(() => {});
+        } else {
+          video.pause();
+        }
+      },
+      {
+        threshold: 0.4,
+      },
+    );
+
+    observer.observe(video);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [type]);
 
   return (
     <div
       className={`
       ${styles.item}
-${isExpanded ? styles.expanded : ""}
-${variant === "marquee" ? styles.marqueeItem : styles.gridItem}`}
+      ${isExpanded ? styles.expanded : ""}
+      ${variant === "marquee" ? styles.marqueeItem : styles.gridItem}
+      `}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       onClick={() => {
@@ -33,11 +65,12 @@ ${variant === "marquee" ? styles.marqueeItem : styles.gridItem}`}
     >
       {type === "video" ? (
         <video
+          ref={videoRef}
           src={project.src}
           muted
-          autoPlay
           loop
           playsInline
+          preload="metadata"
           className={styles.media}
         />
       ) : (
@@ -46,6 +79,7 @@ ${variant === "marquee" ? styles.marqueeItem : styles.gridItem}`}
           alt=""
           className={styles.media}
           draggable={false}
+          loading="lazy"
         />
       )}
 
@@ -64,3 +98,5 @@ ${variant === "marquee" ? styles.marqueeItem : styles.gridItem}`}
     </div>
   );
 }
+
+export default memo(ProjectItem);
