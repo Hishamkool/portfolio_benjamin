@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, memo } from "react";
+import { useRef, useState, memo } from "react";
 
 import styles from "./ProjectItem.module.css";
 
@@ -13,38 +13,21 @@ function ProjectItem({
 }) {
   const [hovered, setHovered] = useState(false);
 
+  const [isPlaying, setIsPlaying] = useState(false);
+
   const videoRef = useRef(null);
 
   const type = getMediaType(project.src);
 
-  // ============================================================
-  // PLAY VIDEO ONLY WHEN VISIBLE
-  // ============================================================
+  const handlePlayVideo = (e) => {
+    e.stopPropagation();
 
-  useEffect(() => {
-    if (type !== "video" || !videoRef.current) return;
+    if (!videoRef.current) return;
 
-    const video = videoRef.current;
+    videoRef.current.play();
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          video.play().catch(() => {});
-        } else {
-          video.pause();
-        }
-      },
-      {
-        threshold: 0.4,
-      },
-    );
-
-    observer.observe(video);
-
-    return () => {
-      observer.disconnect();
-    };
-  }, [type]);
+    setIsPlaying(true);
+  };
 
   return (
     <div
@@ -64,15 +47,23 @@ function ProjectItem({
       }}
     >
       {type === "video" ? (
-        <video
-          ref={videoRef}
-          src={project.src}
-          muted
-          loop
-          playsInline
-          preload="metadata"
-          className={styles.media}
-        />
+        <div className={styles.videoWrapper}>
+          <video
+            ref={videoRef}
+            src={project.src}
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            className={styles.media}
+          />
+
+          {!isPlaying && (
+            <button className={styles.playButton} onClick={handlePlayVideo}>
+              ▶
+            </button>
+          )}
+        </div>
       ) : (
         <img
           src={project.src}
