@@ -17,38 +17,62 @@ function ProjectItem({
 
   const type = getMediaType(project.src);
 
+  // useEffect(() => {
+  //   if (type !== "video" || !videoRef.current) return;
+
+  //   const video = videoRef.current;
+
+  //   let animationFrame;
+
+  //   const checkVisibility = () => {
+  //     const rect = video.getBoundingClientRect();
+
+  //     const isVisible =
+  //       rect.right > 0 &&
+  //       rect.left < window.innerWidth &&
+  //       rect.bottom > 0 &&
+  //       rect.top < window.innerHeight;
+
+  //     if (isVisible) {
+  //       video.play().catch(() => {});
+  //     } else {
+  //       video.pause();
+  //     }
+
+  //     animationFrame = requestAnimationFrame(checkVisibility);
+  //   };
+
+  //   checkVisibility();
+
+  //   return () => {
+  //     cancelAnimationFrame(animationFrame);
+  //     if (video.current) {
+  //       videoRef.current.pause();
+  //     }
+  //   };
+  // }, [type]);
   useEffect(() => {
     if (type !== "video" || !videoRef.current) return;
 
     const video = videoRef.current;
 
-    let animationFrame;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          video.play().catch(() => {});
+        } else {
+          video.pause();
+        }
+      },
+      {
+        threshold: 0.35,
+      },
+    );
 
-    const checkVisibility = () => {
-      const rect = video.getBoundingClientRect();
-
-      const isVisible =
-        rect.right > 0 &&
-        rect.left < window.innerWidth &&
-        rect.bottom > 0 &&
-        rect.top < window.innerHeight;
-
-      if (isVisible) {
-        video.play().catch(() => {});
-      } else {
-        video.pause();
-      }
-
-      animationFrame = requestAnimationFrame(checkVisibility);
-    };
-
-    checkVisibility();
+    observer.observe(video);
 
     return () => {
-      cancelAnimationFrame(animationFrame);
-      if (video.current) {
-        videoRef.current.pause();
-      }
+      observer.disconnect();
     };
   }, [type]);
 
