@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { PROJECTS } from "../../../data/projectData.js";
+import { FEATURED_PROJECTS } from "../../../data/featuredProjects.js"; // to show in all projects category
 import { CATEGORIES } from "../../../data/categories.js";
-import ProjectGrid from "./ProjectGrid";
+import MarqueeProjectGrid from "./MarqueeProjectGrid.jsx";
 import ClassicProjectGrid from "./ClassicProjectGrid";
 import styles from "./ProjectsOverlay.module.css";
 
@@ -22,7 +23,7 @@ export default function ProjectsOverlay({ onClose }) {
   // Filter projects based on active category
   const filtered =
     activeCategory === "all"
-      ? PROJECTS
+      ? FEATURED_PROJECTS
       : PROJECTS.filter((p) => p.category === activeCategory);
 
   // Prevent body scroll while overlay is open
@@ -75,7 +76,7 @@ export default function ProjectsOverlay({ onClose }) {
 
           {/* Scrollable grid */}
           {activeCategory === "all" ? (
-            <ProjectGrid projects={filtered} />
+            <MarqueeProjectGrid projects={filtered} />
           ) : (
             <ClassicProjectGrid projects={filtered} />
           )}

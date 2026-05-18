@@ -17,35 +17,6 @@ function ProjectItem({
 
   const type = getMediaType(project.src);
 
-  // ============================================================
-  // AUTOPLAY ONLY WHEN ITEM IS VISIBLE
-  // ============================================================
-
-  // useEffect(() => {
-  //   if (type !== "video" || !videoRef.current) return;
-
-  //   const video = videoRef.current;
-
-  //   const observer = new IntersectionObserver(
-  //     ([entry]) => {
-  //       if (entry.isIntersecting) {
-  //         video.play().catch(() => {});
-  //       } else {
-  //         video.pause();
-  //       }
-  //     },
-  //     {
-  //       threshold: 0.6,
-  //     },
-  //   );
-
-  //   observer.observe(video);
-
-  //   return () => {
-  //     observer.disconnect();
-  //   };
-  // }, [type]);
-
   useEffect(() => {
     if (type !== "video" || !videoRef.current) return;
 
@@ -75,6 +46,9 @@ function ProjectItem({
 
     return () => {
       cancelAnimationFrame(animationFrame);
+      if (video.current) {
+        videoRef.current.pause();
+      }
     };
   }, [type]);
 

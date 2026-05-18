@@ -21,7 +21,7 @@ export default function ExpandedProjectModal({ project, onClose }) {
               src={project.src}
               controls
               autoPlay
-              preload="auto"
+              preload="none"
               loop
               playsInline
               className={styles.media}
