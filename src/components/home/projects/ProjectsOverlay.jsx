@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import { PROJECTS } from "../../../data/projectData.js";
 import { FEATURED_PROJECTS } from "../../../data/featuredProjects.js"; // to show in all projects category
 import { CATEGORIES } from "../../../data/categories.js";
-import MarqueeProjectGrid from "./MarqueeProjectGrid.jsx";
-import ClassicProjectGrid from "./ClassicProjectGrid";
+import MarqueeProjectGrid from "./marquee/MarqueeProjectGrid.jsx";
+import ClassicProjectGrid from "./classic/ClassicProjectGrid.jsx";
 import styles from "./ProjectsOverlay.module.css";
 
 /**

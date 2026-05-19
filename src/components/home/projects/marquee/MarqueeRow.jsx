@@ -1,4 +1,4 @@
-import ProjectItem from "./ProjectItem";
+import MarqueeProjectItem from "./MarqueeProjectItem";
 
 import styles from "./MarqueeRow.module.css";
 
@@ -19,10 +19,9 @@ export default function MarqueeRow({
         }}
       >
         {projects.map((project) => (
-          <ProjectItem
+          <MarqueeProjectItem
             key={project.id}
             project={project}
-            variant="marquee"
             onClick={() => onProjectClick(project)}
           />
         ))}

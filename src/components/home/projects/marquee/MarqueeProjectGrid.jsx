@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 
 import MarqueeRow from "./MarqueeRow";
-import ExpandedProjectModal from "./ExpandedProjectModal";
+import ExpandedProjectModal from "../ExpandedProjectModal";
 
 import styles from "./MarqueeProjectGrid.module.css";
 // ============================================================

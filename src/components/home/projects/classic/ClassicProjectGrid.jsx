@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import ProjectItem from "./ProjectItem";
+import ClassicProjectItem from "./ClassicProjectItem";
 
 import styles from "./ClassicProjectGrid.module.css";
 
@@ -15,7 +15,7 @@ export default function ClassicProjectGrid({ projects }) {
     <div className={styles.scrollArea}>
       <div className={styles.grid}>
         {projects.map((project) => (
-          <ProjectItem
+          <ClassicProjectItem
             key={project.id}
             project={project}
             isExpanded={expandedId === project.id}
