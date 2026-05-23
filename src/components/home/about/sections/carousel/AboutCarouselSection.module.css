@@ -1,0 +1,113 @@
+.carouselSection {
+  min-height: 100%;
+  height: 100%;
+
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding: 60px;
+}
+
+.carouselTitle {
+  text-align: center;
+
+  font-size: clamp(52px, 6vw, 96px);
+
+  color: white;
+
+  margin-bottom: 40px;
+}
+
+.carouselTitle span {
+  color: #7fc1ff;
+}
+
+.carouselStage {
+  position: relative;
+
+  flex: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carouselItem {
+  position: absolute;
+
+  transition:
+    transform 0.5s ease,
+    opacity 0.5s ease;
+}
+
+.carouselItem img {
+  height: 72vh;
+
+  object-fit: contain;
+}
+
+.carouselActive {
+  transform: translateX(0) scale(1);
+
+  opacity: 1;
+
+  z-index: 5;
+}
+
+.carouselPrev {
+  transform: translateX(-420px) scale(0.72);
+
+  opacity: 0.42;
+}
+
+.carouselNext {
+  transform: translateX(420px) scale(0.72);
+
+  opacity: 0.42;
+}
+
+.carouselHidden {
+  opacity: 0;
+
+  pointer-events: none;
+}
+
+.carouselControls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 30px;
+
+  margin-top: 30px;
+}
+
+.carouselControls button {
+  border: none;
+
+  padding: 14px 22px;
+
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.15);
+
+  color: white;
+
+  cursor: pointer;
+}
+
+.carouselInfo {
+  text-align: center;
+
+  color: white;
+}
+
+.carouselInfo h3 {
+  font-size: 30px;
+
+  margin-bottom: 8px;
+}
