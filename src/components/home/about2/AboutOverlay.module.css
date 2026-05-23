@@ -1,0 +1,97 @@
+.backdrop {
+  /* background: url("public/assets/about/home_page_blur.png"); */
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(21.200000762939453px);
+  inset: 0;
+}
+.overlay {
+  position: absolute;
+  padding: 20px;
+  overflow-x: auto;
+  overflow-y: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: 80%;
+  background: #ffffff8f;
+  border-radius: 50px;
+}
+
+/* items placements */
+
+.linearGradient {
+  width: 686px;
+  height: 686px;
+  position: relative;
+  z-index: -1;
+  top: 300px;
+
+  mix-blend-mode: Darken;
+  background: linear-gradient(180deg, #87b9ff 0%, #ffffff 100%);
+  border-radius: 50%; /* THIS IS CRITICAL - makes it a circle */
+  left: 50%;
+  transform: translateX(-50%);
+}
+.characterContainer {
+  position: absolute;
+  width: 615px;
+  height: auto;
+
+  top: 167px;
+  left: 50%;
+
+  transform: translateX(-50%);
+}
+
+/* HEADER SECTION - ABOUT AND SOCIAL LINKS */
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* about container */
+.textContainer {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: var(--smshadow2x2) var(--smshadow2y) var(--smshadow2blur)
+    var(--smshadow2spread) var(--smcolor);
+
+  box-shadow: var(--smshadow1x) var(--smshadow1y) var(--smshadow1blur)
+    var(--smshadow1spread) var(--smcolor);
+  height: 56px;
+  width: max-content;
+  border-radius: 10px;
+  gap: 6px;
+  border-width: 1px;
+  padding: 12px;
+}
+
+.flexRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.textCnt_text {
+  font-family: DM Sans 36pt;
+  font-weight: 600;
+  font-style: SemiBold;
+  font-size: 16px;
+  color: rgba(22, 44, 114, 1);
+  line-height: 32px;
+  letter-spacing: 0px;
+  vertical-align: middle;
+  text-transform: uppercase;
+}
+/* socila links */
+.socialLinks {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
