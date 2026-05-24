@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 
 import styles from "./AboutPage.module.css";
 
-import AboutHeroSection from "./sections/AboutHeroSection";
+import AboutHeroSection from "./sections/hero/AboutHeroSection";
 import AboutDetailsSection from "./sections/details/AboutDetailsSection";
 import AboutCarouselSection from "./sections/carousel/AboutCarouselSection";
 
