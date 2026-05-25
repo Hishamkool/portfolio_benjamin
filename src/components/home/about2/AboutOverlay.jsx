@@ -131,13 +131,15 @@ function CarouselSection({ height }) {
               if (i !== current) goTo(i);
             }}
           >
-            <img
-              src={
-                CAR_DATA[i]?.image ||
-                "/assets/about/characters/benjamin_char.png"
-              }
-              alt={CAR_LABELS[i]}
-            />
+            <div className={styles["benji-car-float"]}>
+              <img
+                src={
+                  CAR_DATA[i]?.image ||
+                  "/assets/about/characters/benjamin_char.png"
+                }
+                alt={CAR_LABELS[i]}
+              />
+            </div>
             <div className={styles["benji-car-char-label"]}>
               {CAR_LABELS[i]}
             </div>
