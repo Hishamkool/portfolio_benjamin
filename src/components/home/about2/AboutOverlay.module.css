@@ -992,7 +992,7 @@ body {
   width: 100%;
   position: relative;
   min-height: 0;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .benji-car-glow {
@@ -1116,7 +1116,7 @@ body {
 
 .benji-car-role-card {
   position: absolute;
-  bottom: 16px;
+  bottom: 67px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 6;
