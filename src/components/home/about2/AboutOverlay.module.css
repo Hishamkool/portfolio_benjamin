@@ -25,7 +25,9 @@
   --r-sm: 8px;
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -250,7 +252,9 @@ body {
   cursor: pointer;
   color: var(--text-dark);
   box-shadow: 0 2px 7px rgba(80, 140, 200, 0.14);
-  transition: transform 0.18s, background 0.18s;
+  transition:
+    transform 0.18s,
+    background 0.18s;
   position: absolute;
   right: 26px;
   top: 50%;
@@ -278,7 +282,9 @@ body {
   border: 1.5px solid rgba(255, 255, 255, 0.95);
   border-radius: 30px;
   overflow: hidden;
-  box-shadow: 0 6px 24px rgba(80, 140, 200, 0.22), 0 2px 8px rgba(80, 140, 200, 0.12);
+  box-shadow:
+    0 6px 24px rgba(80, 140, 200, 0.22),
+    0 2px 8px rgba(80, 140, 200, 0.12);
 }
 .benji-modal-pill-bar a {
   display: flex;
@@ -341,7 +347,7 @@ body {
   padding: 32px 20px 36px 32px;
 }
 .benji-hero-big-name {
-  font-family: 'Outfit', sans-serif;
+  font-family: "Outfit", sans-serif;
   font-size: clamp(38px, 4.5vw, 66px);
   font-weight: 800;
   color: var(--blue-accent);
@@ -411,7 +417,11 @@ body {
   width: 340px;
   height: 340px;
   border-radius: 50%;
-  background: linear-gradient(180deg, rgba(175, 212, 248, 0.52) 0%, rgba(210, 232, 252, 0.22) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(175, 212, 248, 0.52) 0%,
+    rgba(210, 232, 252, 0.22) 100%
+  );
   border: 1px solid rgba(255, 255, 255, 0.55);
 }
 .benji-hero-img {
@@ -439,7 +449,8 @@ body {
   will-change: transform;
 }
 @keyframes charFloat {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0);
   }
   50% {
@@ -465,7 +476,7 @@ body {
   position: relative;
 }
 .benji-bubble::before {
-  content: '';
+  content: "";
   position: absolute;
   left: -10px;
   bottom: 28px;
@@ -500,7 +511,8 @@ body {
   font-size: 13px;
 }
 @keyframes bounce {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateX(-50%) translateY(0);
   }
   50% {
@@ -563,7 +575,11 @@ body {
   flex-direction: column;
   overflow: hidden;
   min-height: 0;
-  transition: background 0.28s, border-color 0.28s, box-shadow 0.28s, transform 0.28s;
+  transition:
+    background 0.28s,
+    border-color 0.28s,
+    box-shadow 0.28s,
+    transform 0.28s;
 }
 .benji-card:hover {
   background: var(--card-bg-hover);
@@ -608,7 +624,7 @@ body {
   box-shadow: 0 3px 10px rgba(37, 99, 174, 0.3);
 }
 .benji-card-title {
-  font-family: 'Outfit', sans-serif;
+  font-family: "Outfit", sans-serif;
   font-size: 10.5px;
   font-weight: 700;
   letter-spacing: 0.12em;
@@ -653,7 +669,9 @@ body {
   justify-content: center;
   color: var(--blue-icon);
   font-size: 11px;
-  transition: background 0.22s, border-color 0.22s;
+  transition:
+    background 0.22s,
+    border-color 0.22s;
 }
 .benji-card:hover .benji-proj-icon {
   background: rgba(59, 130, 212, 0.18);
@@ -702,7 +720,7 @@ body {
   margin-top: 4px;
 }
 .benji-edu-school {
-  font-family: 'Outfit', sans-serif;
+  font-family: "Outfit", sans-serif;
   font-size: 11.5px;
   font-weight: 700;
   color: var(--text-dark);
@@ -735,7 +753,7 @@ body {
   border-bottom: none;
 }
 .benji-exp-title {
-  font-family: 'Outfit', sans-serif;
+  font-family: "Outfit", sans-serif;
   font-size: 12px;
   font-weight: 700;
   color: var(--text-dark);
@@ -794,7 +812,7 @@ body {
 }
 
 .benji-about-badge {
-  font-family: 'Outfit', sans-serif;
+  font-family: "Outfit", sans-serif;
   font-size: 9px;
   font-weight: 700;
   letter-spacing: 0.2em;
@@ -803,7 +821,7 @@ body {
   margin-bottom: 2px;
 }
 .benji-detail-name {
-  font-family: 'Outfit', sans-serif;
+  font-family: "Outfit", sans-serif;
   font-size: 46px;
   font-weight: 800;
   color: var(--blue-accent);
@@ -876,11 +894,16 @@ body {
   width: 210px;
   height: 210px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(180, 215, 248, 0.36) 0%, transparent 72%);
+  background: radial-gradient(
+    circle,
+    rgba(180, 215, 248, 0.36) 0%,
+    transparent 72%
+  );
   animation: breathe 3.5s ease-in-out infinite;
 }
 @keyframes breathe {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 0.6;
     transform: translate(-50%, -50%) scale(1);
   }
@@ -902,7 +925,9 @@ body {
   transform-origin: bottom center;
   transform: scale(0.82);
   opacity: 0;
-  transition: transform 0.55s cubic-bezier(0.34, 1.2, 0.64, 1), opacity 0.45s ease;
+  transition:
+    transform 0.55s cubic-bezier(0.34, 1.2, 0.64, 1),
+    opacity 0.45s ease;
 }
 .benji-char-img-detail.zoomed-in {
   transform: scale(1);
@@ -931,7 +956,7 @@ body {
   padding: 0 20px;
 }
 .benji-car-eyebrow {
-  font-family: 'Outfit', sans-serif;
+  font-family: "Outfit", sans-serif;
   font-size: 9px;
   font-weight: 700;
   letter-spacing: 0.22em;
@@ -940,7 +965,7 @@ body {
   margin-bottom: 4px;
 }
 .benji-car-title {
-  font-family: 'Outfit', sans-serif;
+  font-family: "Outfit", sans-serif;
   font-size: clamp(30px, 3.8vw, 50px);
   font-weight: 800;
   color: var(--blue-accent);
@@ -978,7 +1003,11 @@ body {
   width: 360px;
   height: 360px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(180, 215, 248, 0.42) 0%, transparent 70%);
+  background: radial-gradient(
+    circle,
+    rgba(180, 215, 248, 0.42) 0%,
+    transparent 70%
+  );
   pointer-events: none;
   z-index: 1;
   animation: breathe 3.5s ease-in-out infinite;
@@ -986,7 +1015,8 @@ body {
 
 .benji-car-char {
   position: absolute;
-  bottom: 148px;
+  /* bottom: 148px; */
+  bottom: -10px;
   left: 50%;
   display: flex;
   flex-direction: column;
@@ -994,7 +1024,7 @@ body {
   justify-content: flex-end;
   transition:
     transform 0.52s cubic-bezier(0.34, 1.05, 0.64, 1),
-    opacity 0.40s ease;
+    opacity 0.4s ease;
   cursor: pointer;
   will-change: transform, opacity;
 }
@@ -1005,12 +1035,12 @@ body {
   object-position: bottom;
   transition:
     max-height 0.52s cubic-bezier(0.34, 1.05, 0.64, 1),
-    filter 0.40s ease,
-    opacity 0.40s ease;
+    filter 0.4s ease,
+    opacity 0.4s ease;
   transform-origin: bottom center;
 }
 .benji-car-char.active {
-  transform: translateX(-50%) scale(1);
+  transform: translateX(-50%) scale(2.5);
   z-index: 4;
   opacity: 1;
   pointer-events: auto;
@@ -1024,7 +1054,8 @@ body {
   animation: charFloatSmall 4s ease-in-out infinite;
 }
 @keyframes charFloatSmall {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0);
   }
   50% {
@@ -1033,7 +1064,7 @@ body {
 }
 
 .benji-car-char.prev {
-  transform: translateX(calc(-50% - 34vw)) scale(0.68);
+  transform: translateX(calc(-50% - 20vw)) scale(0.68);
   z-index: 2;
   opacity: 0.52;
   pointer-events: auto;
@@ -1047,7 +1078,7 @@ body {
 }
 
 .benji-car-char.next {
-  transform: translateX(calc(-50% + 34vw)) scale(0.68);
+  transform: translateX(calc(-50% + 20vw)) scale(0.68);
   z-index: 2;
   opacity: 0.52;
   pointer-events: auto;
@@ -1079,7 +1110,9 @@ body {
   -webkit-backdrop-filter: blur(20px);
   border: 1.5px solid rgba(255, 255, 255, 0.96);
   border-radius: 26px;
-  box-shadow: 0 8px 32px rgba(80, 140, 200, 0.22), 0 2px 8px rgba(80, 140, 200, 0.1);
+  box-shadow:
+    0 8px 32px rgba(80, 140, 200, 0.22),
+    0 2px 8px rgba(80, 140, 200, 0.1);
   overflow: hidden;
   min-width: 360px;
 }
@@ -1095,7 +1128,9 @@ body {
   cursor: pointer;
   color: var(--text-mid);
   font-size: 14px;
-  transition: background 0.2s, color 0.2s;
+  transition:
+    background 0.2s,
+    color 0.2s;
 }
 .benji-car-nav-btn:hover {
   background: rgba(59, 130, 212, 0.08);
@@ -1128,7 +1163,9 @@ body {
   align-items: center;
   justify-content: center;
   font-size: 15px;
-  transition: transform 0.22s, box-shadow 0.22s;
+  transition:
+    transform 0.22s,
+    box-shadow 0.22s;
   cursor: default;
 }
 .benji-car-tool-icon:hover {
@@ -1139,7 +1176,7 @@ body {
   text-align: center;
 }
 .benji-car-role-title {
-  font-family: 'Outfit', sans-serif;
+  font-family: "Outfit", sans-serif;
   font-size: 14px;
   font-weight: 700;
   color: var(--text-dark);
@@ -1153,7 +1190,7 @@ body {
 }
 
 .benji-car-char-label {
-  font-family: 'Outfit', sans-serif;
+  font-family: "Outfit", sans-serif;
   font-size: 10px;
   font-weight: 600;
   color: var(--text-muted);

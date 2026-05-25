@@ -45,7 +45,7 @@ const CAR_DATA = [
   {
     role: "Digital Artist",
     desc: '"Fusing traditional art sensibility with digital mastery"',
-    image: "/assets/about/characters/benjamin_char.png",
+    image: "/assets/about/characters/benjamin_char4.png",
     tools: [
       { icon: "fas fa-pen-nib", color: "#2563ae", title: "Procreate" },
       { icon: "fas fa-layer-group", color: "#001d6e", title: "Photoshop" },
@@ -620,7 +620,7 @@ export default function BenjiPortfolio({ onClose }) {
           <a href="#">
             <i className="fas fa-map-marker-alt" /> <span>India</span>
           </a>
-          <a href="#">
+          <a href="/assets/about/pdf/CV_BENJAMIN.pdf" download>
             <i className="fas fa-download" /> <span>Download CV</span>
           </a>
         </div>
