@@ -4,6 +4,7 @@ import ProjectsOverlay from "../components/home/projects/ProjectsOverlay";
 import AboutOverlay from "../components/home/about2/AboutOverlay";
 // import AboutPage from "../components/home/about/AboutPage";
 
+
 /**
  * HomePageWrapper
  * Manages which overlay is open on top of the map.
@@ -25,10 +26,14 @@ export default function HomePageWrapper() {
 
       {activeOverlay === "projects" && <ProjectsOverlay onClose={close} />}
 
-      {activeOverlay === "about" && <AboutOverlay onClose={close} />}
-      {/* {activeOverlay === "about" && <AboutPage onClose={close} />} */}
+{activeOverlay === "about" && (
+        <div key="about-overlay">
+          <AboutOverlay onClose={close} />
+        </div>
+      )}
 
       {/* About and Contact overlays — add later */}
+
     </>
   );
 }

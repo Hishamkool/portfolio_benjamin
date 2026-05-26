@@ -43,11 +43,19 @@ export default function MapItem({
     }
   };
 
+  const handleClick = (event) => {
+    if (disabled) return;
+    event.stopPropagation();
+    if (typeof onClick === "function") {
+      onClick();
+    }
+  };
+
   return (
     <div
       className={`${styles.item} ${hovered ? styles.hovered : ""} ${disabled ? styles.disabled : ""}`}
       style={style}
-      onClick={!disabled ? onClick : undefined}
+      onClick={handleClick}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
@@ -69,6 +77,7 @@ export default function MapItem({
               }
             : undefined
         }
+        onClick={handleClick}
       >
         {videoSrc ? (
           <video
@@ -79,9 +88,10 @@ export default function MapItem({
             muted
             playsInline
             className={styles.video}
+            onClick={handleClick}
           />
         ) : imageSrc ? (
-          <img src={imageSrc} alt={label} className={styles.image} />
+          <img src={imageSrc} alt={label} className={styles.image} onClick={handleClick} />
         ) : null}
       </div>
 
