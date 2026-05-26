@@ -1,9 +1,8 @@
 import { useState } from "react";
 import HomePage from "../components/home/HomePage";
 import ProjectsOverlay from "../components/home/projects/ProjectsOverlay";
-import AboutOverlay from "../components/home/about2/AboutOverlay";
+import AboutOverlay from "../components/home/about/AboutOverlay";
 // import AboutPage from "../components/home/about/AboutPage";
-
 
 /**
  * HomePageWrapper
@@ -26,14 +25,13 @@ export default function HomePageWrapper() {
 
       {activeOverlay === "projects" && <ProjectsOverlay onClose={close} />}
 
-{activeOverlay === "about" && (
+      {activeOverlay === "about" && (
         <div key="about-overlay">
           <AboutOverlay onClose={close} />
         </div>
       )}
 
       {/* About and Contact overlays — add later */}
-
     </>
   );
 }
