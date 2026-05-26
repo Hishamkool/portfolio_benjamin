@@ -2,7 +2,7 @@ import { useState } from "react";
 import HomePage from "../components/home/HomePage";
 import ProjectsOverlay from "../components/home/projects/ProjectsOverlay";
 import AboutOverlay from "../components/home/about/AboutOverlay";
-// import AboutPage from "../components/home/about/AboutPage";
+import BenjaminContact from "../components/home/contact/BenjaminContact.jsx";
 
 /**
  * HomePageWrapper
@@ -28,6 +28,11 @@ export default function HomePageWrapper() {
       {activeOverlay === "about" && (
         <div key="about-overlay">
           <AboutOverlay onClose={close} />
+        </div>
+      )}
+      {activeOverlay === "contact" && (
+        <div key="contact-overlay">
+          <BenjaminContact onClose={close} />
         </div>
       )}
 
