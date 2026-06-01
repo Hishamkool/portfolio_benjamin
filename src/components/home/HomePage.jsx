@@ -68,11 +68,13 @@ export default function HomePage({
   onProjectsClick,
   onAboutClick,
   onContactClick,
+  onServicesClick,
 }) {
   const handleClick = (id) => {
     if (id === "projects" && onProjectsClick) onProjectsClick();
     if (id === "about" && onAboutClick) onAboutClick();
     if (id === "contact" && onContactClick) onContactClick();
+    if (id === "services" && onServicesClick) onServicesClick();
   };
 
   return (

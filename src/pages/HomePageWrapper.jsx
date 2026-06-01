@@ -3,6 +3,7 @@ import HomePage from "../components/home/HomePage";
 import ProjectsOverlay from "../components/home/projects/ProjectsOverlay";
 import AboutOverlay from "../components/home/about/AboutOverlay";
 import BenjaminContact from "../components/home/contact/BenjaminContact.jsx";
+import ServicesOverlay from "../components/home/services/ServicesOverlay.jsx";
 
 /**
  * HomePageWrapper
@@ -21,6 +22,7 @@ export default function HomePageWrapper() {
         onProjectsClick={() => open("projects")}
         onAboutClick={() => open("about")}
         onContactClick={() => open("contact")}
+        onServicesClick={() => open("services")}
       />
 
       {activeOverlay === "projects" && <ProjectsOverlay onClose={close} />}
@@ -33,6 +35,12 @@ export default function HomePageWrapper() {
       {activeOverlay === "contact" && (
         <div key="contact-overlay">
           <BenjaminContact onClose={close} />
+        </div>
+      )}
+
+      {activeOverlay === "services" && (
+        <div key="services-overlay">
+          <ServicesOverlay onClose={close} />
         </div>
       )}
 
