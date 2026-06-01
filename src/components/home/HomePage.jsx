@@ -28,9 +28,9 @@ const TREE_POSITIONS = [
 
   // In front of the house (z-index: 15)
   { top: "7%", left: "2%", width: "6%", zIndex: 15 },
+  { top: "27%", left: "4.3%", width: "13%", zIndex: 15 },
   { top: "35%", left: "20%", width: "7%", zIndex: 15 },
-  { top: "30%", left: "0%", width: "10%", zIndex: 15 },
-  { top: "39%", left: "12%", width: "7%", zIndex: 15 },
+  { top: "70%", left: "2%", width: "12%", zIndex: 15 },
 ];
 
 const MAP_ITEMS = [
