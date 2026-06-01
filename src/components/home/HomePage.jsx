@@ -20,6 +20,19 @@ import styles from "./HomePage.module.css";
 // Adjust top/left/width to match your Figma positions exactly
 // All values are percentages of the map container
 // ============================================================
+const TREE_POSITIONS = [
+  // Behind the house (z-index: 5)
+  { top: "15%", left: "10%", width: "8%", zIndex: 5 },
+  { top: "20%", left: "16%", width: "7%", zIndex: 5 },
+  { top: "14%", left: "23%", width: "6%", zIndex: 5 },
+
+  // In front of the house (z-index: 15)
+  { top: "7%", left: "2%", width: "6%", zIndex: 15 },
+  { top: "35%", left: "20%", width: "7%", zIndex: 15 },
+  { top: "30%", left: "0%", width: "10%", zIndex: 15 },
+  { top: "39%", left: "12%", width: "7%", zIndex: 15 },
+];
+
 const MAP_ITEMS = [
   {
     id: "projects",
@@ -89,6 +102,25 @@ export default function HomePage({
           draggable={false}
         />
 
+        {/* Render trees behind the house */}
+        {TREE_POSITIONS.filter((tree) => tree.zIndex < 10).map((tree, idx) => (
+          <img
+            key={`tree-back-${idx}`}
+            src="/assets/home/single_tree.svg"
+            alt="Tree"
+            style={{
+              position: "absolute",
+              top: tree.top,
+              left: tree.left,
+              width: tree.width,
+              height: "auto",
+              zIndex: tree.zIndex,
+              pointerEvents: "none",
+            }}
+            draggable={false}
+          />
+        ))}
+
         {/* Render all map items */}
         {MAP_ITEMS.map((item) => (
           <MapItem
@@ -100,6 +132,25 @@ export default function HomePage({
             style={item.position}
             onClick={() => handleClick(item.id)}
             disabled={item.disabled}
+          />
+        ))}
+
+        {/* Render trees in front of the house */}
+        {TREE_POSITIONS.filter((tree) => tree.zIndex > 10).map((tree, idx) => (
+          <img
+            key={`tree-front-${idx}`}
+            src="/assets/home/single_tree.svg"
+            alt="Tree"
+            style={{
+              position: "absolute",
+              top: tree.top,
+              left: tree.left,
+              width: tree.width,
+              height: "auto",
+              zIndex: tree.zIndex,
+              pointerEvents: "none",
+            }}
+            draggable={false}
           />
         ))}
       </div>
