@@ -1,9 +1,13 @@
 /* ============================================
    GLOBAL STYLES & DESIGN TOKENS
    ============================================ */
+
+@import url("https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Patrick+Hand+SC&display=swap");
 :root {
   /* Your existing variables */
   --font-main: "DM Sans", sans-serif;
+  --font-patricSc: "Patrick Hand SC", cursive;
+  --font-lexend: "Lexend", sans-serif;
   --color-bg: #000000;
   --color-white: #ffffff;
   --color-glass-bg: rgba(255, 255, 255, 0.08);

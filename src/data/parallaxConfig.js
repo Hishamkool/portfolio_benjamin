@@ -114,7 +114,8 @@ export const CLOUDS = [
     moveType: "ltr",
     startX: -80,
     endX: 60,
-    yPercent: 103,
+    // yPercent: 103,
+    yPercent: 133,
     speedMult: 1.0,
     opacity: 0.75,
     width: 700,
@@ -127,7 +128,7 @@ export const CLOUDS = [
 export const TEXT_CARDS = [
   {
     id: "text1",
-    content: "WELCOME TO THE DEPTHS",
+    content: "Welcome to the Depths",
     fadeStart: 0,
     fadeEnd: 0.35,
     variant: "hero",
@@ -140,14 +141,14 @@ export const TEXT_CARDS = [
     fadeEnd: 0.65,
     variant: "body",
   },
-  {
-    id: "text3",
-    content:
-      "In a world shaped by imagination, Benjamin brings ideas to life — crafting characters, worlds, and stories that feel real. Step into his creative space and explore the work behind the worlds.",
-    fadeStart: 0.55,
-    fadeEnd: 0.95,
-    variant: "body",
-  },
+  // {
+  //   id: "text3",
+  //   content:
+  //     "In a world shaped by imagination, Benjamin brings ideas to life — crafting characters, worlds, and stories that feel real. Step into his creative space and explore the work behind the worlds.",
+  //   fadeStart: 0.55,
+  //   fadeEnd: 0.95,
+  //   variant: "body",
+  // },
 ];
 
 // --- CTA BUTTON ---

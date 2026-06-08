@@ -199,11 +199,10 @@ export default function ParallaxScene({ ctaRef }) {
       {/* ── CLOUD 2 — between layer6 and text2 ── */}
       <CloudLayer {...CLOUDS[1]} cloudRef={cloudRefs.current[1]} />
 
-      {/* ── TEXT 2 — between layer6 and layer5 ── */}
-      <TextCard {...TEXT_CARDS[1]} cardRef={textRefs.current[1]} />
-
       {/* ── LAYER 5 index=3 ── */}
       <ParallaxLayer src={LAYERS[3].src} layerRef={layerRefs.current[3]} />
+      {/* ── TEXT 2 — between layer6 and layer5 ── */}
+      <TextCard {...TEXT_CARDS[1]} cardRef={textRefs.current[1]} />
 
       {/* ── CLOUD 3 — between layer5 and text3 ── */}
       <CloudLayer {...CLOUDS[2]} cloudRef={cloudRefs.current[2]} />

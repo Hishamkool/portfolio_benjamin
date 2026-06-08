@@ -69,13 +69,15 @@ export default function LoadingScreen({ imageSrcs, onComplete }) {
         <div
           className={`${styles.readyState} ${phase === "ready" ? styles.visible : ""}`}
         >
-          <h1 className={styles.title}>
-            Benjamin Artist
+          <div className={styles.title}>
+            Benjamin
             <br />
-            of Realms
-          </h1>
+            <span className={styles.subhead}>
+              Where creativity meets craftsmanship
+            </span>
+          </div>
           <button className={styles.startButton} onClick={onComplete}>
-            Start Now
+            START JOURNEY
           </button>
         </div>
       </div>

@@ -67,7 +67,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 100%;
+  width: 179%;
   padding: 0 40px;
   opacity: 0;
   pointer-events: none;
@@ -81,12 +81,18 @@
 }
 
 .title {
-  font-size: 48px;
+  font-size: 92px;
   font-weight: 700;
   color: #111;
-  line-height: 1.15;
-  letter-spacing: -0.03em;
+  line-height: 62px;
+  /* letter-spacing: -0.03em; */
+  letter-spacing: 0em;
   margin-bottom: 32px;
+}
+.subhead {
+  font-family: var(--font-patricSc);
+  font-size: 24px;
+  letter-spacing: 1px;
 }
 
 .startButton {
