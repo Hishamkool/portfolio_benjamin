@@ -42,7 +42,7 @@ export default function MarqueeProjectGrid({ projects }) {
         <div className={styles.rows}>
           {rows.map((row, index) => (
             <MarqueeRow
-              key={index}
+              key={`row-${index}`}
               projects={row}
               direction={index % 2 === 0 ? "ltr" : "rtl"}
               speed={40 + index}

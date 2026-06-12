@@ -10,32 +10,39 @@ function MarqueeProjectItem({ project, onClick }) {
   const type = getMediaType(project.src);
 
   // ============================================================
-  // PLAY ONLY WHEN VISIBLE
+  // PLAY ONLY WHEN VISIBLE using observer
   // ============================================================
+
+  // useEffect(() => {
+  //   if (type !== "video" || !videoRef.current) return;
+
+  //   const video = videoRef.current;
+
+  //   const observer = new IntersectionObserver(
+  //     ([entry]) => {
+  //       if (entry.isIntersecting) {
+  //         video.play().catch(() => {});
+  //       } else {
+  //         video.pause();
+  //       }
+  //     },
+  //     {
+  //       threshold: 0.35,
+  //     },
+  //   );
+
+  //   observer.observe(video);
+
+  //   return () => {
+  //     observer.disconnect();
+  //   };
+  // }, [type]);
 
   useEffect(() => {
     if (type !== "video" || !videoRef.current) return;
 
     const video = videoRef.current;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          video.play().catch(() => {});
-        } else {
-          video.pause();
-        }
-      },
-      {
-        threshold: 0.35,
-      },
-    );
-
-    observer.observe(video);
-
-    return () => {
-      observer.disconnect();
-    };
+    video.play(); // default safe state
   }, [type]);
 
   return (
@@ -47,7 +54,7 @@ function MarqueeProjectItem({ project, onClick }) {
           muted
           loop
           playsInline
-          preload="metadata"
+          preload="none"
           className={styles.media}
         />
       ) : (
