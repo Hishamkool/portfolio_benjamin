@@ -81,7 +81,9 @@ export default function ProjectsOverlay({ onClose }) {
         <main
           className={`${styles.panel} ${isSidebarCollapsed ? styles.panelExpanded : ""}`}
         >
-          <div className={styles.topBar}>
+          <div
+            className={`${styles.topBar} ${!isSidebarCollapsed ? styles.topBarExpanded : ""}`}
+          >
             <div className={styles.topBarLeft}>
               <button
                 type="button"

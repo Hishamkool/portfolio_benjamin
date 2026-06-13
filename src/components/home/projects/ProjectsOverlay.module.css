@@ -206,6 +206,14 @@
   background: rgba(255, 255, 255, 0.18);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
+  transition:
+    align-items 0.25s ease,
+    padding 0.25s ease,
+    gap 0.25s ease;
+}
+
+.topBarExpanded {
+  align-items: flex-start;
 }
 
 .topBarLeft {
@@ -213,6 +221,7 @@
   align-items: center;
   gap: 20px;
   flex-wrap: wrap;
+  transition: gap 0.25s ease, width 0.25s ease;
 }
 
 .topBarTitle {
@@ -222,6 +231,7 @@
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: #1f2937;
+  transition: opacity 0.24s ease, transform 0.24s ease;
 }
 
 .topRightClose {
@@ -293,6 +303,28 @@
 
   .topBar {
     padding: 14px 16px;
+  }
+
+  .topBarExpanded {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .topBarExpanded .topBarLeft {
+    width: 100%;
+    justify-content: space-between;
+    gap: 8px;
+  }
+
+  .topBarExpanded .topBarTitle {
+    opacity: 0.9;
+    transform: translateX(2px);
+  }
+
+  .topBarExpanded .topRightClose {
+    align-self: flex-end;
+    margin-top: 8px;
+    flex-shrink: 0;
   }
 
   .topBarLeft {
