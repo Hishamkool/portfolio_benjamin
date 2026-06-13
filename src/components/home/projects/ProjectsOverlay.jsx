@@ -19,7 +19,10 @@ import styles from "./ProjectsOverlay.module.css";
  */
 export default function ProjectsOverlay({ onClose }) {
   const [activeCategory, setActiveCategory] = useState("all");
-  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
+  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(() => {
+    if (typeof window === "undefined") return false;
+    return window.matchMedia("(max-width: 768px)").matches;
+  });
 
   const toggleSidebar = () => {
     setIsSidebarCollapsed((prev) => !prev);
