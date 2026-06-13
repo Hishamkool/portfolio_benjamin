@@ -221,7 +221,9 @@
   align-items: center;
   gap: 20px;
   flex-wrap: wrap;
-  transition: gap 0.25s ease, width 0.25s ease;
+  transition:
+    gap 0.25s ease,
+    width 0.25s ease;
 }
 
 .topBarTitle {
@@ -231,7 +233,9 @@
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: #1f2937;
-  transition: opacity 0.24s ease, transform 0.24s ease;
+  transition:
+    opacity 0.24s ease,
+    transform 0.24s ease;
 }
 
 .topRightClose {
