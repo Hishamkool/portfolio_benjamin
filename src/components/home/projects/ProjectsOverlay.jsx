@@ -19,6 +19,11 @@ import styles from "./ProjectsOverlay.module.css";
  */
 export default function ProjectsOverlay({ onClose }) {
   const [activeCategory, setActiveCategory] = useState("all");
+  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
+
+  const toggleSidebar = () => {
+    setIsSidebarCollapsed((prev) => !prev);
+  };
 
   // Filter projects based on active category
   const filtered =
@@ -34,35 +39,61 @@ export default function ProjectsOverlay({ onClose }) {
     };
   }, []);
 
+  useEffect(() => {
+    const faId = "projects-overlay-fa";
+    if (!document.getElementById(faId)) {
+      const link = document.createElement("link");
+      link.id = faId;
+      link.rel = "stylesheet";
+      link.href =
+        "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css";
+      document.head.appendChild(link);
+    }
+  }, []);
+
   return (
     <div className={styles.backdrop}>
       <div className={styles.overlay}>
-        {/* ── LEFT SIDEBAR ── */}
-        <aside className={styles.sidebar}>
-          <button
-            className={styles.backBtn}
-            onClick={onClose}
-            aria-label="Close"
-          >
-            <img src="/assets/home/back_btn.svg" alt="Back" />
-          </button>
+        <button
+          type="button"
+          className={`${styles.backBtn} ${isSidebarCollapsed ? styles.backBtnCollapsed : ""}`}
+          onClick={toggleSidebar}
+          aria-label={isSidebarCollapsed ? "Expand sidebar" : "Collapse sidebar"}
+        >
+          <img src="/assets/home/back_btn.svg" alt="Toggle sidebar" />
+        </button>
 
-          {/* Category tabs */}
-          <nav className={styles.tabs}>
-            {CATEGORIES.map((cat) => (
-              <button
-                key={cat.id}
-                className={`${styles.tab} ${activeCategory === cat.id ? styles.tabActive : ""}`}
-                onClick={() => setActiveCategory(cat.id)}
-              >
-                {cat.label}
-              </button>
-            ))}
-          </nav>
+        <button
+          type="button"
+          className={styles.topRightClose}
+          onClick={() => {
+            if (typeof onClose === "function") onClose();
+          }}
+          aria-label="Close modal"
+        >
+          <i className="fas fa-times" />
+        </button>
+
+        {/* ── LEFT SIDEBAR ── */}
+        <aside className={`${styles.sidebar} ${isSidebarCollapsed ? styles.sidebarCollapsed : ""}`}>
+          <div className={styles.sidebarInner}>
+            {/* Category tabs */}
+            <nav className={styles.tabs}>
+              {CATEGORIES.map((cat) => (
+                <button
+                  key={cat.id}
+                  className={`${styles.tab} ${activeCategory === cat.id ? styles.tabActive : ""}`}
+                  onClick={() => setActiveCategory(cat.id)}
+                >
+                  {cat.label}
+                </button>
+              ))}
+            </nav>
+          </div>
         </aside>
 
         {/* ── RIGHT PANEL ── */}
-        <main className={styles.panel}>
+        <main className={`${styles.panel} ${isSidebarCollapsed ? styles.panelExpanded : ""}`}>
           {/* Header */}
           <div className={styles.header}>
             <div>
