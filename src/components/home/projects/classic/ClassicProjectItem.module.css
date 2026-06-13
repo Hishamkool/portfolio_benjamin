@@ -8,6 +8,9 @@
   background: rgba(255, 255, 255, 0.06);
 
   cursor: pointer;
+  contain: layout paint;
+  transform: translateZ(0);
+  will-change: transform;
 
   transition:
     grid-row 0.25s ease,

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, memo } from "react";
+import { useEffect, useRef, useState, memo, useCallback } from "react";
 
 import styles from "./ClassicProjectItem.module.css";
 
@@ -6,46 +6,61 @@ import { getMediaType } from "../../../../utils/getMediaType";
 
 function ClassicProjectItem({ project, isExpanded, onToggle }) {
   const [hovered, setHovered] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
 
   const videoRef = useRef(null);
+  const itemRef = useRef(null);
 
   const type = getMediaType(project.src);
 
-  // ============================================================
-  // PLAY VIDEO ONLY WHEN VISIBLE
-  // ============================================================
+  const handleToggle = useCallback(
+    (e) => {
+      e.stopPropagation();
+      onToggle();
+    },
+    [onToggle],
+  );
 
   useEffect(() => {
-    if (type !== "video" || !videoRef.current) return;
+    if (type !== "video" || !videoRef.current || !itemRef.current) return;
 
     const video = videoRef.current;
+    const node = itemRef.current;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          video.play().catch(() => {});
-        } else {
-          video.pause();
-        }
+        setIsVisible(entry.isIntersecting);
       },
       {
-        threshold: 0.3,
+        root: null,
+        threshold: 0.1,
       },
     );
 
-    observer.observe(video);
+    observer.observe(node);
 
     return () => {
       observer.disconnect();
     };
   }, [type]);
 
+  useEffect(() => {
+    if (type !== "video" || !videoRef.current) return;
+
+    const video = videoRef.current;
+
+    if (!isVisible) {
+      video.pause();
+      return;
+    }
+
+    video.play().catch(() => {});
+  }, [type, isVisible]);
+
   return (
     <div
-      className={`
-        ${styles.item}
-        ${isExpanded ? styles.expanded : ""}
-      `}
+      ref={itemRef}
+      className={`${styles.item} ${isExpanded ? styles.expanded : ""}`}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       onClick={onToggle}
@@ -59,6 +74,7 @@ function ClassicProjectItem({ project, isExpanded, onToggle }) {
           playsInline
           preload="metadata"
           className={styles.media}
+          poster={project.poster || ""}
         />
       ) : (
         <img
@@ -72,10 +88,7 @@ function ClassicProjectItem({ project, isExpanded, onToggle }) {
 
       <button
         className={`${styles.expandBtn} ${hovered ? styles.visible : ""}`}
-        onClick={(e) => {
-          e.stopPropagation();
-          onToggle();
-        }}
+        onClick={handleToggle}
       >
         {isExpanded ? "−" : "+"}
       </button>

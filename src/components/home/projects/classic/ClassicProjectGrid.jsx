@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState, useCallback } from "react";
 
 import ClassicProjectItem from "./ClassicProjectItem";
 
@@ -7,14 +7,16 @@ import styles from "./ClassicProjectGrid.module.css";
 export default function ClassicProjectGrid({ projects }) {
   const [expandedId, setExpandedId] = useState(null);
 
-  const handleToggle = (id) => {
+  const handleToggle = useCallback((id) => {
     setExpandedId((prev) => (prev === id ? null : id));
-  };
+  }, []);
+
+  const visibleProjects = useMemo(() => projects, [projects]);
 
   return (
     <div className={styles.scrollArea}>
       <div className={styles.grid}>
-        {projects.map((project) => (
+        {visibleProjects.map((project) => (
           <ClassicProjectItem
             key={project.id}
             project={project}
