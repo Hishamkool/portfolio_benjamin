@@ -58,7 +58,9 @@ export default function ProjectsOverlay({ onClose }) {
           type="button"
           className={`${styles.backBtn} ${isSidebarCollapsed ? styles.backBtnCollapsed : ""}`}
           onClick={toggleSidebar}
-          aria-label={isSidebarCollapsed ? "Expand sidebar" : "Collapse sidebar"}
+          aria-label={
+            isSidebarCollapsed ? "Expand sidebar" : "Collapse sidebar"
+          }
         >
           <img src="/assets/home/back_btn.svg" alt="Toggle sidebar" />
         </button>
@@ -75,7 +77,9 @@ export default function ProjectsOverlay({ onClose }) {
         </button>
 
         {/* ── LEFT SIDEBAR ── */}
-        <aside className={`${styles.sidebar} ${isSidebarCollapsed ? styles.sidebarCollapsed : ""}`}>
+        <aside
+          className={`${styles.sidebar} ${isSidebarCollapsed ? styles.sidebarCollapsed : ""}`}
+        >
           <div className={styles.sidebarInner}>
             {/* Category tabs */}
             <nav className={styles.tabs}>
@@ -93,7 +97,9 @@ export default function ProjectsOverlay({ onClose }) {
         </aside>
 
         {/* ── RIGHT PANEL ── */}
-        <main className={`${styles.panel} ${isSidebarCollapsed ? styles.panelExpanded : ""}`}>
+        <main
+          className={`${styles.panel} ${isSidebarCollapsed ? styles.panelExpanded : ""}`}
+        >
           {/* Header */}
           <div className={styles.header}>
             <div>
