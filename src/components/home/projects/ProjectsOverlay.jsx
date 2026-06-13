@@ -54,28 +54,6 @@ export default function ProjectsOverlay({ onClose }) {
   return (
     <div className={styles.backdrop}>
       <div className={styles.overlay}>
-        <button
-          type="button"
-          className={`${styles.backBtn} ${isSidebarCollapsed ? styles.backBtnCollapsed : ""}`}
-          onClick={toggleSidebar}
-          aria-label={
-            isSidebarCollapsed ? "Expand sidebar" : "Collapse sidebar"
-          }
-        >
-          <img src="/assets/home/back_btn.svg" alt="Toggle sidebar" />
-        </button>
-
-        <button
-          type="button"
-          className={styles.topRightClose}
-          onClick={() => {
-            if (typeof onClose === "function") onClose();
-          }}
-          aria-label="Close modal"
-        >
-          <i className="fas fa-times" />
-        </button>
-
         {/* ── LEFT SIDEBAR ── */}
         <aside
           className={`${styles.sidebar} ${isSidebarCollapsed ? styles.sidebarCollapsed : ""}`}
@@ -100,6 +78,36 @@ export default function ProjectsOverlay({ onClose }) {
         <main
           className={`${styles.panel} ${isSidebarCollapsed ? styles.panelExpanded : ""}`}
         >
+          <div className={styles.topBar}>
+            <div className={styles.topBarLeft}>
+              <button
+                type="button"
+                className={`${styles.backBtn} ${isSidebarCollapsed ? styles.backBtnCollapsed : ""}`}
+                onClick={toggleSidebar}
+                aria-label={
+                  isSidebarCollapsed ? "Expand sidebar" : "Collapse sidebar"
+                }
+              >
+                <i
+                  className={`fas ${isSidebarCollapsed ? "fa-bars" : "fa-times"}`}
+                />
+                <span>{"Categories"}</span>
+              </button>
+              <div className={styles.topBarTitle}>Projects Section</div>
+            </div>
+
+            <button
+              type="button"
+              className={styles.topRightClose}
+              onClick={() => {
+                if (typeof onClose === "function") onClose();
+              }}
+              aria-label="Close modal"
+            >
+              <i className="fas fa-times" />
+            </button>
+          </div>
+
           {/* Header */}
           <div className={styles.header}>
             <div>
