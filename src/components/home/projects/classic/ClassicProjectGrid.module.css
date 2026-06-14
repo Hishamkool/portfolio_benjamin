@@ -30,3 +30,15 @@
   grid-auto-flow: dense;
   contain: layout paint;
 }
+
+@media (max-width: 768px) {
+  .scrollArea {
+    padding: 16px 16px 24px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(max(100%, 260px), 320px));
+    justify-content: center;
+    gap: 10px;
+  }
+}

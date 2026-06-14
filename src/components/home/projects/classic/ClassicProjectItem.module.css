@@ -11,6 +11,8 @@
   contain: layout paint;
   transform: translateZ(0);
   will-change: transform;
+  aspect-ratio: 4 / 3;
+  min-width: 0;
 
   transition:
     grid-row 0.25s ease,
@@ -34,6 +36,7 @@
   height: 100%;
 
   object-fit: cover;
+  aspect-ratio: inherit;
 
   display: block;
 }
