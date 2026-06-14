@@ -49,13 +49,20 @@ function ClassicProjectItem({ project, isExpanded, onToggle }) {
 
     const video = videoRef.current;
 
-    if (!isVisible) {
+    if (!isVisible && !isExpanded) {
       video.pause();
+      video.muted = true;
+      video.volume = 0;
       return;
     }
 
-    video.play().catch(() => {});
-  }, [type, isVisible]);
+    video.muted = !isExpanded;
+    video.volume = isExpanded ? 1 : 0;
+
+    if (video.paused) {
+      video.play().catch(() => {});
+    }
+  }, [type, isVisible, isExpanded]);
 
   return (
     <div
@@ -69,7 +76,7 @@ function ClassicProjectItem({ project, isExpanded, onToggle }) {
         <video
           ref={videoRef}
           src={project.src}
-          muted
+          muted={!isExpanded}
           loop
           playsInline
           preload="metadata"
