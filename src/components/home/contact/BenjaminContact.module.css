@@ -686,8 +686,8 @@
 .cjCharPanel {
   position: relative;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: start;
+  justify-content: flex-end;
   overflow: visible;
   padding-bottom: 0;
   left: -23px;
@@ -698,8 +698,7 @@
   bottom: -20px;
   left: 50%;
   transform: translateX(-50%);
-  width: 220px;
-  height: 220px;
+
   border-radius: 50%;
   background: radial-gradient(
     circle,
@@ -725,7 +724,7 @@
 .cjCharImg {
   position: relative;
   z-index: 2;
-  width: 100%;
+  width: 130%;
   max-width: 320px;
   height: auto;
   object-fit: contain;
