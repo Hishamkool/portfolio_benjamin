@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { SplineScene } from "./SplineScene";
 
 const CSS = `
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Nunito:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap');
@@ -26,11 +27,11 @@ const CSS = `
 .sv-shell{
   position:fixed;inset:0;z-index:200;
   display:flex;align-items:center;justify-content:center;
-  padding:24px;pointer-events:auto;
+  padding:24px;overflow:auto;pointer-events:auto;
 }
 .sv-modal{
-  width:100%;max-width:1060px;
-  height:85vh;max-height:85vh;
+   width:100%;max-width:1200px;
+   height:85vh;max-height:85vh;
   background:rgba(218,234,252,0.52);
   backdrop-filter:blur(30px);-webkit-backdrop-filter:blur(30px);
   border:1.5px solid rgba(255,255,255,.84);
@@ -160,10 +161,8 @@ const CSS = `
 }
 .sv-hero-char{
   position:relative;z-index:2;
-  height:88%;max-height:480px;width:auto;
-  object-fit:contain;object-position:top;
-  filter:drop-shadow(0 18px 38px rgba(37,99,174,.18));
-  animation:charBob 4s ease-in-out infinite;transform-origin:bottom center;
+  height:88%;max-height:480px;width:100%;
+  display:flex;align-items:center;justify-content:center;
 }
 @keyframes charBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
 
@@ -446,46 +445,103 @@ const CSS = `
 
 /* ── DATA ── */
 const SERVICES = [
-  { icon:"fas fa-cube",         title:"3D Art & Modeling",    desc:"High-quality 3D models, props, characters & environments." },
-  { icon:"fas fa-gamepad",      title:"Game Art",             desc:"Assets and visuals for games with style and performance in mind." },
-  { icon:"fas fa-film",         title:"2D Animation",         desc:"Smooth, expressive 2D animations and motion graphics." },
-  { icon:"fas fa-video",        title:"Lyrical Animation",    desc:"Engaging lyrical videos that bring music and lyrics to life." },
-  { icon:"fas fa-image",        title:"Graphic Design",       desc:"Posters, social media visuals, branding & promotional designs." },
-  { icon:"fas fa-tshirt",       title:"Merch & Apparel Design",desc:"Trend-focused T-shirt graphics and apparel designs." },
+  {
+    icon: "fas fa-cube",
+    title: "3D Art & Modeling",
+    desc: "High-quality 3D models, props, characters & environments.",
+  },
+  {
+    icon: "fas fa-gamepad",
+    title: "Game Art",
+    desc: "Assets and visuals for games with style and performance in mind.",
+  },
+  {
+    icon: "fas fa-film",
+    title: "2D Animation",
+    desc: "Smooth, expressive 2D animations and motion graphics.",
+  },
+  {
+    icon: "fas fa-video",
+    title: "Lyrical Animation",
+    desc: "Engaging lyrical videos that bring music and lyrics to life.",
+  },
+  {
+    icon: "fas fa-image",
+    title: "Graphic Design",
+    desc: "Posters, social media visuals, branding & promotional designs.",
+  },
+  {
+    icon: "fas fa-tshirt",
+    title: "Merch & Apparel Design",
+    desc: "Trend-focused T-shirt graphics and apparel designs.",
+  },
 ];
 
 const STEPS = [
-  { icon:"fas fa-user-friends", num:"01", title:"Understand",    desc:"I listen to your ideas, goals, and vision in detail." },
-  { icon:"fas fa-lightbulb",    num:"02", title:"Plan & Concept", desc:"I brainstorm and create concepts that fit your needs." },
-  { icon:"fas fa-pen-nib",      num:"03", title:"Design & Create",desc:"I bring the concept to life with precision and creativity." },
-  { icon:"fas fa-sync-alt",     num:"04", title:"Review & Refine",desc:"We review, refine, and perfect every detail together." },
-  { icon:"fas fa-cloud-upload-alt",num:"05",title:"Deliver",     desc:"Final delivery with all required formats & support." },
+  {
+    icon: "fas fa-user-friends",
+    num: "01",
+    title: "Understand",
+    desc: "I listen to your ideas, goals, and vision in detail.",
+  },
+  {
+    icon: "fas fa-lightbulb",
+    num: "02",
+    title: "Plan & Concept",
+    desc: "I brainstorm and create concepts that fit your needs.",
+  },
+  {
+    icon: "fas fa-pen-nib",
+    num: "03",
+    title: "Design & Create",
+    desc: "I bring the concept to life with precision and creativity.",
+  },
+  {
+    icon: "fas fa-sync-alt",
+    num: "04",
+    title: "Review & Refine",
+    desc: "We review, refine, and perfect every detail together.",
+  },
+  {
+    icon: "fas fa-cloud-upload-alt",
+    num: "05",
+    title: "Deliver",
+    desc: "Final delivery with all required formats & support.",
+  },
 ];
 
 const TESTIMONIALS = [
   {
-    avatar:null, initials:"N",
-    name:"– Shanis", brand:"NAKED Lifestyle Brand",
-    stars:5,
-    text:`Benjamin played an important role in shaping the visual identity of NAKED. His T-shirt graphics were stylish, bold, and aligned perfectly with modern fashion trends. He has a strong creative sense and always brings fresh ideas to the table.\n\nHis professionalism, fast workflow, and design quality made him a valuable creative partner for our brand.`,
+    avatar: null,
+    initials: "N",
+    name: "– Shanis",
+    brand: "NAKED Lifestyle Brand",
+    stars: 5,
+    text: `Benjamin played an important role in shaping the visual identity of NAKED. His T-shirt graphics were stylish, bold, and aligned perfectly with modern fashion trends. He has a strong creative sense and always brings fresh ideas to the table.\n\nHis professionalism, fast workflow, and design quality made him a valuable creative partner for our brand.`,
   },
   {
-    avatar:null, initials:"A",
-    name:"– Aromal Chekaver", brand:"",
-    stars:5,
-    text:`"I've worked with Benjamin on multiple lyrical animation and visual projects, and every time he brought something unique to the table. His visuals have a strong artistic feel and really help elevate the music experience.\n\nFrom lyric animations to thumbnails and cover art, his creativity and dedication consistently stand out. He's someone who genuinely cares about the final output and puts real effort into every detail."`,
+    avatar: null,
+    initials: "A",
+    name: "– Aromal Chekaver",
+    brand: "",
+    stars: 5,
+    text: `"I've worked with Benjamin on multiple lyrical animation and visual projects, and every time he brought something unique to the table. His visuals have a strong artistic feel and really help elevate the music experience.\n\nFrom lyric animations to thumbnails and cover art, his creativity and dedication consistently stand out. He's someone who genuinely cares about the final output and puts real effort into every detail."`,
   },
   {
-    avatar:null, initials:"N",
-    name:"– Nivedh CJ", brand:"",
-    stars:5,
-    text:`"Working with Benjamin on my Tamil song Varam Neeye was a really good experience. He perfectly understood the emotion and feel of the song and turned it into beautiful lyrical visuals. The animation style and overall presentation gave the video a cinematic touch.\n\nHe was creative, easy to work with, and delivered great quality work."`,
+    avatar: null,
+    initials: "N",
+    name: "– Nivedh CJ",
+    brand: "",
+    stars: 5,
+    text: `"Working with Benjamin on my Tamil song Varam Neeye was a really good experience. He perfectly understood the emotion and feel of the song and turned it into beautiful lyrical visuals. The animation style and overall presentation gave the video a cinematic touch.\n\nHe was creative, easy to work with, and delivered great quality work."`,
   },
   {
-    avatar:null, initials:"I",
-    name:"– Ishan Shabeer, NIHAL SHAJU & Shamel", brand:"",
-    stars:5,
-    text:`"Benjamin absolutely nailed the cover art for Loop Days. The whole artwork had a fresh vibe and matched the energy of the track perfectly. The colors, character styling, and overall presentation gave the project a unique identity and made it stand out instantly.\n\nSuper creative, easy to work with, and someone who really understands modern music visuals."`,
+    avatar: null,
+    initials: "I",
+    name: "– Ishan Shabeer, NIHAL SHAJU & Shamel",
+    brand: "",
+    stars: 5,
+    text: `"Benjamin absolutely nailed the cover art for Loop Days. The whole artwork had a fresh vibe and matched the energy of the track perfectly. The colors, character styling, and overall presentation gave the project a unique identity and made it stand out instantly.\n\nSuper creative, easy to work with, and someone who really understands modern music visuals."`,
   },
 ];
 
@@ -505,20 +561,26 @@ export default function ServicesOverlay({ onClose }) {
   const [tPage, setTPage] = useState(0);
   const perPage = 4;
   const pages = Math.ceil(TESTIMONIALS.length / perPage);
-  const visible = TESTIMONIALS.slice(tPage * perPage, tPage * perPage + perPage);
+  const visible = TESTIMONIALS.slice(
+    tPage * perPage,
+    tPage * perPage + perPage,
+  );
 
   useEffect(() => {
     const id = "sv-css";
     if (!document.getElementById(id)) {
       const s = document.createElement("style");
-      s.id = id; s.textContent = CSS;
+      s.id = id;
+      s.textContent = CSS;
       document.head.appendChild(s);
     }
     const faId = "sv-fa";
     if (!document.getElementById(faId)) {
       const l = document.createElement("link");
-      l.id = faId; l.rel = "stylesheet";
-      l.href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css";
+      l.id = faId;
+      l.rel = "stylesheet";
+      l.href =
+        "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css";
       document.head.appendChild(l);
     }
   }, []);
@@ -526,32 +588,41 @@ export default function ServicesOverlay({ onClose }) {
   return (
     <div className="sv-shell">
       <div className="sv-modal">
-
         {/* TOPBAR */}
         <div className="sv-topbar">
           <div className="sv-topbar-pill">
             <i className="fas fa-briefcase" /> Services
           </div>
-          <button className="sv-close" onClick={() => typeof onClose === "function" && onClose()}>
+          <button
+            className="sv-close"
+            onClick={() => typeof onClose === "function" && onClose()}
+          >
             <i className="fas fa-times" />
           </button>
         </div>
 
         {/* SCROLLABLE CONTENT */}
         <div className="sv-scroll">
-
           {/* ── SECTION 1: HERO + SERVICE GRID ── */}
           <div className="sv-hero">
             <div className="sv-hero-left">
-              <div className="sv-eyebrow"><i className="fas fa-briefcase" /> Services</div>
-              <h1 className="sv-h1"><em>Creative</em> Services</h1>
+              <div className="sv-eyebrow">
+                <i className="fas fa-briefcase" /> Services
+              </div>
+              <h1 className="sv-h1">
+                <em>Creative</em> Services
+              </h1>
               <p className="sv-lead">
-                From concept to final output, I help brands and artists bring their ideas to life through powerful visuals, engaging animations, and thoughtful design.
+                From concept to final output, I help brands and artists bring
+                their ideas to life through powerful visuals, engaging
+                animations, and thoughtful design.
               </p>
               <div className="sv-grid">
                 {SERVICES.map((s, i) => (
                   <div key={i} className="sv-card">
-                    <div className="sv-card-icon"><i className={s.icon} /></div>
+                    <div className="sv-card-icon">
+                      <i className={s.icon} />
+                    </div>
                     <div className="sv-card-content">
                       <div className="sv-card-title">{s.title}</div>
                       <div className="sv-card-desc">{s.desc}</div>
@@ -565,14 +636,21 @@ export default function ServicesOverlay({ onClose }) {
             <div className="sv-hero-right">
               <div className="sv-hero-glow" />
               {/* orbs */}
-              <div className="sv-orb"><i className="fas fa-pen-nib" /></div>
-              <div className="sv-orb"><i className="fas fa-cube" /></div>
-              <div className="sv-orb"><i className="fas fa-gamepad" /></div>
-              <div className="sv-orb"><i className="fas fa-palette" /></div>
-              <img
+              <div className="sv-orb">
+                <i className="fas fa-pen-nib" />
+              </div>
+              <div className="sv-orb">
+                <i className="fas fa-cube" />
+              </div>
+              <div className="sv-orb">
+                <i className="fas fa-gamepad" />
+              </div>
+              <div className="sv-orb">
+                <i className="fas fa-palette" />
+              </div>
+              <SplineScene
+                scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
                 className="sv-hero-char"
-                src="/assets/about/characters/benjamin_char.png"
-                alt="Benjamin"
               />
             </div>
           </div>
@@ -584,14 +662,20 @@ export default function ServicesOverlay({ onClose }) {
             <div className="sv-process-bg" />
             <div className="sv-process-top">
               <div>
-                <div className="sv-process-label"><i className="fas fa-cog" /> My Process</div>
+                <div className="sv-process-label">
+                  <i className="fas fa-cog" /> My Process
+                </div>
                 <div className="sv-process-h">How I Work</div>
-                <p className="sv-process-sub">A clear and collaborative process to ensure the best results.</p>
+                <p className="sv-process-sub">
+                  A clear and collaborative process to ensure the best results.
+                </p>
               </div>
               <div className="sv-steps">
                 {STEPS.map((s, i) => (
                   <div key={i} className="sv-step">
-                    <div className="sv-step-icon"><i className={s.icon} /></div>
+                    <div className="sv-step-icon">
+                      <i className={s.icon} />
+                    </div>
                     <div className="sv-step-text">
                       <div className="sv-step-num">{s.num}</div>
                       <div className="sv-step-title">{s.title}</div>
@@ -607,14 +691,24 @@ export default function ServicesOverlay({ onClose }) {
 
           {/* ── SECTION 3: TESTIMONIALS ── */}
           <div className="sv-testi">
-            <div className="sv-testi-label"><i className="fas fa-star" /> Testimonials</div>
+            <div className="sv-testi-label">
+              <i className="fas fa-star" /> Testimonials
+            </div>
             <div className="sv-testi-header">
-              <div className="sv-testi-h">What <em>Clients</em> Say</div>
+              <div className="sv-testi-h">
+                What <em>Clients</em> Say
+              </div>
               <div className="sv-testi-nav">
-                <button className="sv-testi-btn" onClick={() => setTPage(p => Math.max(0, p - 1))}>
+                <button
+                  className="sv-testi-btn"
+                  onClick={() => setTPage((p) => Math.max(0, p - 1))}
+                >
                   <i className="fas fa-chevron-left" />
                 </button>
-                <button className="sv-testi-btn" onClick={() => setTPage(p => Math.min(pages - 1, p + 1))}>
+                <button
+                  className="sv-testi-btn"
+                  onClick={() => setTPage((p) => Math.min(pages - 1, p + 1))}
+                >
                   <i className="fas fa-chevron-right" />
                 </button>
               </div>
@@ -629,14 +723,24 @@ export default function ServicesOverlay({ onClose }) {
                   </div>
                   <div className="sv-tcard-body">
                     {t.text.split("\n\n").map((para, pi) => (
-                      <p key={pi} style={{ marginBottom: pi < t.text.split("\n\n").length - 1 ? "10px" : 0 }}>{para}</p>
+                      <p
+                        key={pi}
+                        style={{
+                          marginBottom:
+                            pi < t.text.split("\n\n").length - 1 ? "10px" : 0,
+                        }}
+                      >
+                        {para}
+                      </p>
                     ))}
                   </div>
                   <div className="sv-tcard-footer">
                     <div className="sv-avatar">
-                      {t.avatar
-                        ? <img src={t.avatar} alt={t.name} />
-                        : t.initials}
+                      {t.avatar ? (
+                        <img src={t.avatar} alt={t.name} />
+                      ) : (
+                        t.initials
+                      )}
                     </div>
                     <div className="sv-author">
                       <strong>{t.name}</strong>
@@ -647,8 +751,8 @@ export default function ServicesOverlay({ onClose }) {
               ))}
             </div>
           </div>
-
-        </div>{/* /sv-scroll */}
+        </div>
+        {/* /sv-scroll */}
       </div>
     </div>
   );
