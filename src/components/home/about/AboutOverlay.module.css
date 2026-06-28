@@ -114,7 +114,7 @@
 /* MODAL */
 .benji-modal {
   width: 100%;
-  max-width: 1060px;
+  max-width: 1200px;
   height: 85vh;
   max-height: 85vh;
   background: rgba(218, 234, 252, 0.5);
@@ -1190,14 +1190,16 @@
     align-items: flex-start;
   }
   .benji-modal {
-    max-height: none;
+    max-height: 100vh;
     height: auto;
     min-height: 100vh;
     border-radius: 20px;
+    overflow: hidden;
   }
   .benji-modal-scroll {
-    overflow-y: visible;
+    overflow-y: auto;
     scroll-snap-type: none;
+    flex: 1;
   }
   .benji-topbar {
     padding: 12px 14px;
@@ -1231,17 +1233,20 @@
   }
   .benji-hero-left {
     order: 1;
-    padding: 10px 20px;
+    padding: 16px 20px;
     align-items: center;
-    gap: 20px;
+    gap: 16px;
   }
   .benji-hero-big-name {
     text-align: center;
     font-size: clamp(34px, 12vw, 52px);
+    margin-top: 0;
   }
   .benji-skill-btns {
     justify-content: center;
     flex-wrap: wrap;
+    padding-bottom: 0;
+    gap: 12px;
   }
   .benji-skill-btn {
     width: 74px;
@@ -1276,6 +1281,7 @@
   }
   .benji-sec-detail {
     height: auto !important;
+    min-height: auto !important;
     grid-template-columns: 1fr;
     grid-template-rows: auto;
     overflow: visible;
@@ -1323,6 +1329,8 @@
   }
   .benji-sec-carousel {
     height: auto !important;
+    min-height: auto !important;
+    overflow: visible;
     padding: 30px 0 120px;
   }
   .benji-car-title {
