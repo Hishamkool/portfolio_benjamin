@@ -1,25 +1,8 @@
 import { useState } from "react";
 import MapItem from "./MapItem";
 import styles from "./HomePage.module.css";
+import { transform } from "motion";
 
-/**
- * HomePage
- *
- * The isometric snow map with clickable elements.
- * Positions are based on the Figma design — adjust
- * top/left/width values in MAP_ITEMS to match exactly.
- *
- * Props:
- *   onProjectsClick    - opens projects overlay
- *   onAboutClick       - opens about overlay
- *   onContactClick     - opens contact overlay
- */
-
-// ============================================================
-// MAP ITEMS CONFIG
-// Adjust top/left/width to match your Figma positions exactly
-// All values are percentages of the map container
-// ============================================================
 const TREE_POSITIONS = [
   // Behind the house (z-index: 5)
   { top: "15%", left: "10%", width: "8%", zIndex: 5 },
@@ -38,11 +21,14 @@ const MAP_ITEMS = [
     id: "projects",
     label: "Projects",
     // videoSrc: "/assets/home/house_turn.mp4",
-    position: { top: "1.2%", left: "3.5%", width: "17.9%" },
+    position: { top: "10.2%", left: "3.5%", width: "17.9%" },
 
     // videoSrc: "/assets/home/house_withoutbg.webm",
     imageSrc: "/assets/home/house_jump_gif2.gif",
-    // clip: { top: "40%", bottom: "50%" },
+    tagPosition: {
+      top: "50px",
+      left: "-6%",
+    },
   },
   {
     id: "about",
@@ -53,27 +39,25 @@ const MAP_ITEMS = [
     */
 
     videoSrc: "/assets/home/boy_withoutbg.webm",
-    position: { top: "16.4%", left: "31.1%", width: "15.1%" },
+    position: { top: "36.4%", left: "31.1%", width: "15.1%" },
+    tagPosition: { top: "" },
   },
   {
     id: "services",
     label: "Services",
     videoSrc: "/assets/home/services_withoutbg.webm",
-    position: { top: "20.6%", left: "47.0%", width: "31.9%" },
-    imageSrc: null,
-
-    disabled: false, // placeholder — coming soon
+    position: { top: "35.6%", left: "47.0%", width: "31.9%" },
+    tagPosition: {},
   },
   {
     id: "contact",
     label: "Contact",
-    /* 
-    videoSrc: "/assets/home/ship_loop.mp4",
-    position: { top: "-10%", left: "76.9%", width: "23.1%" },
-     */
-
     videoSrc: "/assets/home/ship_withoutbg.webm",
-    position: { top: "-30%", left: "76.9%", width: "23.1%" },
+    position: { top: "-20%", left: "76.9%", width: "23.1%" },
+    tagPosition: {
+      top: "300px",
+      left: "-15%",
+    },
   },
 ];
 
@@ -103,7 +87,7 @@ export default function HomePage({
         />
 
         {/* Render trees behind the house */}
-        {TREE_POSITIONS.filter((tree) => tree.zIndex < 10).map((tree, idx) => (
+        {/* {TREE_POSITIONS.filter((tree) => tree.zIndex < 10).map((tree, idx) => (
           <img
             key={`tree-back-${idx}`}
             src="/assets/home/single_tree.svg"
@@ -119,24 +103,10 @@ export default function HomePage({
             }}
             draggable={false}
           />
-        ))}
-
-        {/* Render all map items */}
-        {MAP_ITEMS.map((item) => (
-          <MapItem
-            key={item.id}
-            label={item.label}
-            clip={item.clip}
-            videoSrc={item.videoSrc}
-            imageSrc={item.imageSrc}
-            style={item.position}
-            onClick={() => handleClick(item.id)}
-            disabled={item.disabled}
-          />
-        ))}
+        ))} */}
 
         {/* Render trees in front of the house */}
-        {TREE_POSITIONS.filter((tree) => tree.zIndex > 10).map((tree, idx) => (
+        {/* {TREE_POSITIONS.filter((tree) => tree.zIndex > 10).map((tree, idx) => (
           <img
             key={`tree-front-${idx}`}
             src="/assets/home/single_tree.svg"
@@ -151,6 +121,21 @@ export default function HomePage({
               pointerEvents: "none",
             }}
             draggable={false}
+          />
+        ))} */}
+
+        {/* Render all map items */}
+        {MAP_ITEMS.map((item) => (
+          <MapItem
+            key={item.id}
+            label={item.label}
+            clip={item.clip}
+            videoSrc={item.videoSrc}
+            imageSrc={item.imageSrc}
+            style={item.position}
+            tagPosition={item.tagPosition}
+            onClick={() => handleClick(item.id)}
+            disabled={item.disabled}
           />
         ))}
       </div>

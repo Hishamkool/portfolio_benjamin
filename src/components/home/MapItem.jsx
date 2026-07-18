@@ -22,6 +22,7 @@ export default function MapItem({
   videoSrc,
   imageSrc,
   style,
+  tagPosition,
   onClick,
   disabled = false,
   clip, // ← add this
@@ -60,7 +61,7 @@ export default function MapItem({
       onMouseLeave={handleMouseLeave}
     >
       {/* Floating label tag */}
-      <div className={styles.tag}>
+      <div className={styles.tag} style={tagPosition}>
         {label}
         {disabled && <span className={styles.soon}> · soon</span>}
       </div>
@@ -91,12 +92,17 @@ export default function MapItem({
             onClick={handleClick}
           />
         ) : imageSrc ? (
-          <img src={imageSrc} alt={label} className={styles.image} onClick={handleClick} />
+          <img
+            src={imageSrc}
+            alt={label}
+            className={styles.image}
+            onClick={handleClick}
+          />
         ) : null}
       </div>
 
       {/* Hover glow ring */}
-      {!disabled && <div className={styles.glowRing} />}
+      {/* {!disabled && <div className={styles.glowRing} />} */}
     </div>
   );
 }
