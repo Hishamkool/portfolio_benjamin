@@ -168,6 +168,13 @@
     transform 0.15s ease;
   letter-spacing: 0.01em;
 }
+.tabTitle {
+  font-size: 18px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 .tab:hover:not(.tabActive) {
   background: rgba(255, 255, 255, 0.45);

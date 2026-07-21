@@ -70,7 +70,7 @@ export default function ProjectsOverlay({ onClose }) {
                   className={`${styles.tab} ${activeCategory === cat.id ? styles.tabActive : ""}`}
                   onClick={() => setActiveCategory(cat.id)}
                 >
-                  {cat.label}
+                  <span className={styles.tabTitle}>{cat.label}</span>
                 </button>
               ))}
             </nav>
