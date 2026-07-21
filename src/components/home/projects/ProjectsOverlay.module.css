@@ -302,8 +302,8 @@
   }
 
   .sidebar {
-    width: min(78vw, 260px);
-    min-width: min(78vw, 260px);
+    width: 170px;
+    min-width: 130px;
     padding: 56px 16px 20px;
   }
 

@@ -15,7 +15,7 @@ export default function ExpandedProjectModal({ project, onClose }) {
 
       {/* Click empty area to close */}
       <div className={styles.modal} onClick={onClose}>
-        <div className={styles.content} onClick={(e) => e.stopPropagation()}>
+        <div className={styles.content}>
           {type === "video" ? (
             <video
               src={project.src}
