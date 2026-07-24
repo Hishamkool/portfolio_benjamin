@@ -186,13 +186,13 @@ function CarouselSection({ height }) {
 /* â”€â”€â”€ Main Portfolio Component â”€â”€â”€ */
 export default function BenjiPortfolio({ onClose }) {
   const scrollRef = useRef(null);
-  const heroWrapRef = useRef(null);
-  const detailImgRef = useRef(null);
-  const secDetailRef = useRef(null);
+  // const heroWrapRef = useRef(null);
+  // const detailImgRef = useRef(null);
+  // const secDetailRef = useRef(null);
 
   const [hintOpacity, setHintOpacity] = useState(0.45);
-  const [heroScale, setHeroScale] = useState(1);
-  const [detailZoomed, setDetailZoomed] = useState(false);
+  // const [heroScale, setHeroScale] = useState(1);
+  // const [detailZoomed, setDetailZoomed] = useState(false);
   const [sectionHeight, setSectionHeight] = useState("100%");
   const [activeSkill, setActiveSkill] = useState(2);
 
@@ -221,20 +221,6 @@ export default function BenjiPortfolio({ onClose }) {
   }, []);
 
   /* Scroll handler */
-  useEffect(() => {
-    const el = scrollRef.current;
-    if (!el) return;
-    function onScroll() {
-      const scrolled = el.scrollTop;
-      const heroH = el.querySelector(".benji-sec-hero")?.offsetHeight || 1;
-      setHintOpacity(scrolled > 20 ? 0 : 0.45);
-      const progress = Math.min(scrolled / heroH, 1);
-      setHeroScale(1 - progress * 0.28);
-      setDetailZoomed(progress >= 0.98);
-    }
-    el.addEventListener("scroll", onScroll, { passive: true });
-    return () => el.removeEventListener("scroll", onScroll);
-  }, []);
 
   const skillBtns = [
     { icon: "fas fa-palette", label: "3D Art" },
@@ -318,10 +304,10 @@ export default function BenjiPortfolio({ onClose }) {
             <div className={styles["benji-hero-center"]}>
               <div className={styles["benji-hero-circle"]} />
               <div
-                ref={heroWrapRef}
+                // ref={heroWrapRef}
                 className={styles["benji-hero-img-wrap"]}
                 style={{
-                  transform: `scale(${heroScale})`,
+                  // transform: `scale(${heroScale})`,
                   transformOrigin: "bottom center",
                 }}
               >
@@ -358,7 +344,7 @@ export default function BenjiPortfolio({ onClose }) {
           {/* â”€â”€ SECTION 2: DETAIL â”€â”€ */}
           <div
             className={styles["benji-sec-detail"]}
-            ref={secDetailRef}
+            // ref={secDetailRef}
             style={{ height: sectionHeight }}
           >
             {/* Left */}
@@ -511,10 +497,10 @@ export default function BenjiPortfolio({ onClose }) {
                   <div className={styles["benji-ring"]} />
                 </div>
                 <img
-                  ref={detailImgRef}
+                  // ref={detailImgRef}
                   className={cx(
                     styles["benji-char-img-detail"],
-                    detailZoomed && styles["zoomed-in"],
+                    
                   )}
                   src="/assets/about/characters/benjamin_char.png"
                   alt="Benji"
