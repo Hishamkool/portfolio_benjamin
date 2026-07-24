@@ -300,17 +300,19 @@
 .benji-hero-left {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-evenly;
+
   padding: 32px 20px 36px 32px;
 }
 .benji-hero-big-name {
   font-family: "Outfit", sans-serif;
-  font-size: clamp(38px, 4.5vw, 66px);
+  font-size: clamp(38px, 4.5vw, 53px);
   font-weight: 800;
   color: var(--blue-accent);
   letter-spacing: -2px;
   line-height: 1;
-  margin-top: 120px;
+  margin-top: 20px;
+  /* margin-top: 120px; */
 }
 .benji-hero-big-name span {
   color: var(--text-mid);
@@ -318,6 +320,8 @@
 }
 .benji-skill-btns {
   display: flex;
+  align-items: center;
+  justify-content: center;
   gap: 10px;
   padding-bottom: 160px;
 }
@@ -336,6 +340,7 @@
   cursor: pointer;
   transition: all 0.24s;
   text-decoration: none;
+  flex-grow: 1;
 }
 .benji-skill-btn:hover {
   background: #fff;
@@ -365,6 +370,13 @@
   justify-content: center;
   position: relative;
   overflow: hidden;
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    black 0%,
+    black 82%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(to bottom, black 0%, black 82%, transparent 100%);
 }
 .benji-hero-circle {
   position: absolute;
@@ -383,7 +395,7 @@
 }
 .benji-hero-img {
   position: relative;
-  top: 700px;
+  top: 740px;
 
   z-index: 2;
   /* height: 96%; */
@@ -430,10 +442,22 @@
   border-radius: var(--r-lg);
   padding: 18px 20px;
   box-shadow: 0 4px 20px rgba(80, 140, 200, 0.14);
-  font-size: 13px;
+  font-size: 15px;
   color: var(--text-mid);
   line-height: 1.68;
+  z-index: 3;
   position: relative;
+  animation: benjiBubbleFloat 2s ease-in-out infinite alternate;
+}
+
+@keyframes benjiBubbleFloat {
+  from {
+    transform: translateY(-15px);
+  }
+
+  to {
+    transform: translateY(10px);
+  }
 }
 .benji-bubble::before {
   content: "";
@@ -933,11 +957,11 @@
   line-height: 1;
   margin-bottom: 5px;
 }
-.benji-car-title span {
+/* .benji-car-title span {
   color: var(--text-mid);
   position: relative;
   top: 30%;
-}
+} */
 .benji-car-subtitle {
   font-size: 11px;
   color: var(--text-soft);
@@ -1255,30 +1279,43 @@
     width: 74px;
     height: 74px;
   }
-  .benji-hero-center {
-    order: 2;
-    min-height: 320px;
-    padding: 20px 0 0;
-  }
   .benji-hero-circle {
     width: 260px;
     height: 260px;
     bottom: 0;
   }
+  .benji-hero-center {
+    overflow: visible;
+    order: 2;
+    min-height: 320px;
+    max-height: 340px;
+    padding: 20px 0 0;
+  }
   .benji-hero-img {
-    max-height: 360px;
+    top: 900px;
+    object-fit: contain;
+    min-height: 1200px;
+    width: auto;
+    max-height: 320px;
   }
   .benji-hero-right {
     order: 3;
     padding: 12px 20px 0;
   }
   .benji-bubble {
-    font-size: 12px;
+    font-size: 14px;
+    text-align: center;
     line-height: 1.7;
   }
   .benji-bubble::before {
-    display: none;
+    top: -18px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid rgba(255, 255, 255, 0.95);
   }
+
   .benji-scroll-hint {
     display: none;
   }
@@ -1425,8 +1462,16 @@
   .benji-detail-name {
     font-size: 30px;
   }
-  .benji-hero-img {
+  .benji-hero-center {
+    overflow: visible;
     max-height: 300px;
+  }
+
+  .benji-hero-img {
+    top: 850px;
+    object-fit: contain;
+    min-height: 1200px;
+    width: auto;
   }
   .benji-char-img-detail {
     height: 210px;

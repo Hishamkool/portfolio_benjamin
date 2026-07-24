@@ -247,14 +247,17 @@ export default function BenjiPortfolio({ onClose }) {
             <i className="fas fa-user-circle" /> About the Artist
           </div>
           <div className={styles["benji-topbar-socials"]}>
-            <a href="#">
+            <a href="https://www.instagram.com/ben_.jmin?igsh=eXV2NGhhdGJibnp4&utm_source=qr">
               <i className="fab fa-instagram" />
             </a>
-            <a href="#">
+            <a
+              href="https://www.linkedin.com/in/benjamin-cs-823b602b0
+"
+            >
               <i className="fab fa-linkedin-in" />
             </a>
-            <a href="#">
-              <i className="fab fa-facebook-f" />
+            <a href="https://benjamincs1.artstation.com/">
+              <i className="fab fa-artstation" />
             </a>
           </div>
           <button
@@ -277,9 +280,7 @@ export default function BenjiPortfolio({ onClose }) {
             style={{ height: sectionHeight, minHeight: "500px" }}
           >
             <div className={styles["benji-hero-left"]}>
-              <div className={styles["benji-hero-big-name"]}>
-                Benjamin <span>cs</span>
-              </div>
+              <div className={styles["benji-hero-big-name"]}>Benjamin CS</div>
               <div className={styles["benji-skill-btns"]}>
                 {skillBtns.map((b, i) => (
                   <a
@@ -321,7 +322,7 @@ export default function BenjiPortfolio({ onClose }) {
 
             <div className={styles["benji-hero-right"]}>
               <div className={styles["benji-bubble"]}>
-                Hey everyone! I'm Benji â€”
+                Hey everyone! I'm Benji
                 <br />a passionate 3D Game Artist and Concept Artist who loves
                 bringing stories to life through characters, worlds, and
                 creative design. I'm highly dedicated, deadline-friendly, and
@@ -498,10 +499,7 @@ export default function BenjiPortfolio({ onClose }) {
                 </div>
                 <img
                   // ref={detailImgRef}
-                  className={cx(
-                    styles["benji-char-img-detail"],
-                    
-                  )}
+                  className={cx(styles["benji-char-img-detail"])}
                   src="/assets/about/characters/benjamin_char.png"
                   alt="Benji"
                 />
@@ -602,8 +600,7 @@ export default function BenjiPortfolio({ onClose }) {
         {/* Floating pill bar */}
         <div className={styles["benji-modal-pill-bar"]}>
           <a href="mailto:kpminishaji007@gmail.com">
-            <i className="fas fa-envelope" />{" "}
-            <span>kpminishaji007@gmail.com</span>
+            <i className="fas fa-envelope" /> <span>csbenju76@gmail.com</span>
           </a>
           <a href="#">
             <i className="fas fa-map-marker-alt" /> <span>India</span>
