@@ -111,7 +111,7 @@ function CarouselSection({ height }) {
       <div className={styles["benji-car-header"]}>
         <div className={styles["benji-car-eyebrow"]}>About the Artist</div>
         <div className={styles["benji-car-title"]}>
-          Benjamin <span>cs</span>
+          Benjamin <span>CS</span>
         </div>
         <div className={styles["benji-car-subtitle"]}>
           Each version showcases a different area of Benjamin's expertise,
@@ -281,6 +281,7 @@ export default function BenjiPortfolio({ onClose }) {
           >
             <div className={styles["benji-hero-left"]}>
               <div className={styles["benji-hero-big-name"]}>Benjamin CS</div>
+
               <div className={styles["benji-skill-btns"]}>
                 {skillBtns.map((b, i) => (
                   <a
@@ -299,6 +300,10 @@ export default function BenjiPortfolio({ onClose }) {
                     <span>{b.label}</span>
                   </a>
                 ))}
+              </div>
+              <div className={styles["benji-detail-tagline"]}>
+                I bring ideas to life through art, creating characters full of
+                personality and immersive worlds that tell a story.
               </div>
             </div>
 
@@ -443,9 +448,7 @@ export default function BenjiPortfolio({ onClose }) {
                         Mahatma Gandhi University &nbsp;BA Animation &amp;
                         Graphic Design
                       </div>
-                      <div className={styles["benji-edu-date"]}>
-                        2022 â€“ 2025
-                      </div>
+                      <div className={styles["benji-edu-date"]}>2022 2025</div>
                       <div className={styles["benji-edu-desc"]}>
                         5th Rank Holder. Strong foundation in 3D art, animation,
                         lighting, visual storytelling and 2D concept art.
@@ -461,7 +464,7 @@ export default function BenjiPortfolio({ onClose }) {
                         Asian Institute of Design (AID)
                       </div>
                       <div className={styles["benji-edu-date"]}>
-                        MAY 2022 â€“ 2025
+                        MAY 2022 2025
                       </div>
                       <div className={styles["benji-edu-desc"]}>
                         Focused on 3D game art, character &amp; environment
@@ -476,7 +479,7 @@ export default function BenjiPortfolio({ onClose }) {
 
             {/* Center */}
             <div className={styles["benji-col-center"]}>
-              <div className={styles["benji-about-badge"]}>
+              {/* <div className={styles["benji-about-badge"]}>
                 About the Artist
               </div>
               <div className={styles["benji-detail-name"]}>Benji</div>
@@ -489,7 +492,7 @@ export default function BenjiPortfolio({ onClose }) {
                 From characters full of personality
                 <br />
                 to immersive worlds that tell a story.
-              </div>
+              </div> */}
               <div className={styles["benji-char-wrap"]}>
                 <div className={styles["benji-rings"]}>
                   <div className={styles["benji-ring-glow"]} />
@@ -521,19 +524,19 @@ export default function BenjiPortfolio({ onClose }) {
                   {[
                     {
                       title: "Egllu Studio | 3D Animation Intern",
-                      date: "April 2024 â€“ May 2025",
+                      date: "April 2024 May 2025",
                       desc: "Worked on 3D animation projects, creating 3D props and 2D animatics with a focus on visual storytelling, quality, and detail in a fast-paced studio environment.",
                       line: true,
                     },
                     {
                       title: "Naked Lifestyle Brand | Fashion Graphic Designer",
-                      date: "May 2025 â€“ Present",
+                      date: "May 2025 Present",
                       desc: "Currently designing trend-focused T-shirt visuals, apparel graphics, and branding materials including logos, brochures, posters, and mockups for a clothing brand.",
                       line: true,
                     },
                     {
                       title: "2D Animator & Lyric Video Designer | Freelancer",
-                      date: "June 2025 â€“ Present",
+                      date: "June 2025 Present",
                       desc: "Freelance designer creating lyrical animations, cover art, thumbnails, and 2D visuals for indie-pop artist Aromal Chekaver and other clients.",
                       line: false,
                     },
@@ -570,16 +573,16 @@ export default function BenjiPortfolio({ onClose }) {
                 <div className={styles["benji-card-body"]} />
                 <div className={styles["benji-skills-wrap"]}>
                   {[
-                    "3D Modeling",
-                    "Visual Design & Art",
-                    "Software Skills",
-                    "Visual Development",
-                    "Character Design",
-                    "Animation",
+                    // "Blender",
                     "Branding",
-                    "Concept Art",
-                    "Blender",
+                    "Animation",
                     "Photoshop",
+                    "3D Modeling",
+                    "Concept Art",
+                    "Software Skills",
+                    "Character Design",
+                    "Visual Development",
+                    "Visual Design & Art",
                   ].map((s, i) => (
                     <span key={i} className={styles["benji-skill-tag"]}>
                       {s}

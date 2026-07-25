@@ -83,7 +83,7 @@
 .title {
   font-size: 92px;
   font-weight: 700;
-  color: #111;
+  color: #111111;
   line-height: 62px;
   /* letter-spacing: -0.03em; */
   letter-spacing: 0em;
@@ -98,8 +98,8 @@
 .startButton {
   display: inline-block;
   padding: 14px 36px;
-  background: #111;
-  color: #fff;
+  background: var(--blue-accent);
+  color: #ffffff;
   font-size: 16px;
   font-weight: 600;
   border: none;

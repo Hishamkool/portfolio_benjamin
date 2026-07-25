@@ -25,97 +25,13 @@ export default function ParallaxScene({ ctaRef }) {
   const cloudRefs = useRef(CLOUDS.map(() => ({ current: null })));
   const textRefs = useRef(TEXT_CARDS.map(() => ({ current: null })));
 
-  // const onFrame = useCallback(
-  //   (progress) => {
-  //     const vh = window.innerHeight;
-  //     const zoom = calcZoomScale(progress);
 
-  //     // Drive ALL 8 image layers
-  //     LAYERS.forEach((layer, i) => {
-  //       const el = layerRefs.current[i]?.current;
-  //       if (!el) return;
-  //       const offsetY = calcLayerOffset(
-  //         progress,
-  //         layer.speed,
-  //         layer.baseRange,
-  //         vh,
-  //       );
-  //       const depthFactor = 0.7 + (i / LAYERS.length) * 0.5;
-  //       const layerZoom = 1 + (zoom - 1) * depthFactor;
-  //       el.style.transform = `translate(-50%, calc(-50% + ${offsetY}px)) scale(${layerZoom})`;
-  //     });
-
-  //     // Drive clouds
-  //     CLOUDS.forEach((cloud, i) => {
-  //       const el = cloudRefs.current[i]?.current;
-  //       if (!el) return;
-  //       const { x, y } = calcCloudPosition(progress, cloud);
-  //       el.style.left = `${x}%`;
-  //       el.style.top = `${y}%`;
-  //     });
-
-  //     // Drive text opacity
-  //     TEXT_CARDS.forEach((card, i) => {
-  //       const el = textRefs.current[i]?.current;
-  //       if (!el) return;
-  //       el.style.opacity = calcTextOpacity(
-  //         progress,
-  //         card.fadeStart,
-  //         card.fadeEnd,
-  //       );
-  //     });
-
-  //     // Drive CTA button
-  //     if (ctaRef?.current) {
-  //       let btnOpacity = 0;
-  //       if (progress >= 0.7) {
-  //         const t = Math.min(1, (progress - 0.7) / 0.2);
-  //         btnOpacity = Math.sin((t * Math.PI) / 2);
-  //       }
-  //       ctaRef.current.style.opacity = btnOpacity;
-  //     }
-  //   },
-  //   [ctaRef],
-  // );
   const onFrame = useCallback(
     (progress) => {
       const vh = window.innerHeight;
       const zoom = calcZoomScale(progress);
 
-      /* LAYERS.forEach((layer, i) => {
-        const el = layerRefs.current[i]?.current;
-        if (!el) return;
-
-        let offsetY = calcLayerOffset(
-          progress,
-          layer.speed,
-          layer.baseRange,
-          vh,
-        );
-        const depthFactor = 0.7 + (i / LAYERS.length) * 0.5;
-        const layerZoom = 1 + (zoom - 1) * depthFactor;
-
-        // ── BOTTOM CLAMP — prevents gap appearing at bottom ──
-        // ── BOTTOM CLAMP — prevents gap at bottom ──
-        if (layer.sticksToBottom) {
-          const imageHeight = el.naturalHeight * (el.width / el.naturalWidth);
-          // ↑ actual rendered height based on natural aspect ratio at current width
-
-          const imageHalfHeight = (imageHeight * layerZoom) / 2;
-          const minOffsetY = vh / 2 - imageHalfHeight;
-          offsetY = Math.max(offsetY, minOffsetY);
-        }
-
-        // ── CAVE REVEAL — layer1 slides down at end of scroll ──
-        // if (layer.isForeground && progress > 0.65) {
-        //   const caveProgress = (progress - 0.65) / 0.35;
-        //   const eased = 1 - Math.pow(1 - caveProgress, 2);
-        //   const caveSlide = eased * vh * 0.8;
-        //   offsetY += caveSlide; // intentional slide — no clamp applied here
-        // }
-
-        el.style.transform = `translate(-50%, calc(-50% + ${offsetY}px)) scale(${layerZoom})`;
-      }); */
+   
 
       // In ParallaxScene.jsx, inside LAYERS.forEach:
       LAYERS.forEach((layer, i) => {
