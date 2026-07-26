@@ -1,7 +1,7 @@
-import { useState } from "react";
-import MapItem from "./MapItem";
-import styles from "./HomePage.module.css";
+import { useEffect, useState } from "react";
 import { transform } from "motion";
+import DesktopMap from "./home_desktop/DesktopMap";
+import MobileMap from "./home_mobile/MobileMap";
 
 const TREE_POSITIONS = [
   // Behind the house (z-index: 5)
@@ -74,71 +74,25 @@ export default function HomePage({
     if (id === "services" && onServicesClick) onServicesClick();
   };
 
-  return (
-    <div className={styles.page}>
-      {/* Snow map background */}
-      <div className={styles.mapContainer}>
-        <img
-          // src="/assets/home/map_bg.png"
-          src="/assets/home/empty_map_bg.png"
-          alt="Portfolio Map"
-          className={styles.mapBg}
-          draggable={false}
-        />
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
-        {/* Render trees behind the house */}
-        {/* {TREE_POSITIONS.filter((tree) => tree.zIndex < 10).map((tree, idx) => (
-          <img
-            key={`tree-back-${idx}`}
-            src="/assets/home/single_tree.svg"
-            alt="Tree"
-            style={{
-              position: "absolute",
-              top: tree.top,
-              left: tree.left,
-              width: tree.width,
-              height: "auto",
-              zIndex: tree.zIndex,
-              pointerEvents: "none",
-            }}
-            draggable={false}
-          />
-        ))} */}
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
 
-        {/* Render trees in front of the house */}
-        {/* {TREE_POSITIONS.filter((tree) => tree.zIndex > 10).map((tree, idx) => (
-          <img
-            key={`tree-front-${idx}`}
-            src="/assets/home/single_tree.svg"
-            alt="Tree"
-            style={{
-              position: "absolute",
-              top: tree.top,
-              left: tree.left,
-              width: tree.width,
-              height: "auto",
-              zIndex: tree.zIndex,
-              pointerEvents: "none",
-            }}
-            draggable={false}
-          />
-        ))} */}
+    window.addEventListener("resize", handleResize);
 
-        {/* Render all map items */}
-        {MAP_ITEMS.map((item) => (
-          <MapItem
-            key={item.id}
-            label={item.label}
-            clip={item.clip}
-            videoSrc={item.videoSrc}
-            imageSrc={item.imageSrc}
-            style={item.position}
-            tagPosition={item.tagPosition}
-            onClick={() => handleClick(item.id)}
-            disabled={item.disabled}
-          />
-        ))}
-      </div>
-    </div>
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  return isMobile ? (
+    <MobileMap />
+  ) : (
+    <DesktopMap
+      mapItems={MAP_ITEMS}
+      handleClick={handleClick}
+      treePositions={TREE_POSITIONS}
+    />
   );
 }
