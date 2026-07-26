@@ -327,7 +327,7 @@ const CSS = `
 
 /* ── Tablet landscape / small desktop (≤900px) ── */
 @media(max-width:900px){
-  .sv-modal{ max-width:100%; }
+  // .sv-modal{ max-width:100%; }
   .sv-hero{ grid-template-columns:1fr 300px; }
   .sv-hero-left{ padding:32px 24px 32px 32px; }
   .sv-h1{ font-size:clamp(30px,4.5vw,44px); }
@@ -413,8 +413,8 @@ const CSS = `
 
 /* ── Small mobile (≤480px) ── */
 @media(max-width:480px){
-  .sv-shell{ padding:0; }
-  .sv-modal{ border-radius:0; min-height:100svh; }
+  // .sv-shell{ padding:0; }
+  .sv-modal{ min-height:100svh; }
   .sv-hero-left{ padding:20px 14px 18px; }
   .sv-eyebrow{ font-size:8.5px; }
   .sv-h1{ font-size:clamp(22px,9vw,30px); letter-spacing:-0.5px; margin-bottom:8px; }
