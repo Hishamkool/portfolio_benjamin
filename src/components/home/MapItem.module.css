@@ -37,7 +37,7 @@
   transition:
     background 0.2s ease,
     transform 0.2s ease;
-  position: relative;
+  position: absolute;
   z-index: 2;
 }
 

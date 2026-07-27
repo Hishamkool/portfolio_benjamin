@@ -55,19 +55,21 @@ function DesktopMap({ mapItems, handleClick, treePositions }) {
         ))} */}
 
         {/* Render all map items */}
-        {mapItems.map((item) => (
-          <MapItem
-            key={item.id}
-            label={item.label}
-            clip={item.clip}
-            videoSrc={item.videoSrc}
-            imageSrc={item.imageSrc}
-            style={item.position}
-            tagPosition={item.tagPosition}
-            onClick={() => handleClick(item.id)}
-            disabled={item.disabled}
-          />
-        ))}
+        {mapItems.map((item) => {
+          return (
+            <MapItem
+              key={item.id}
+              label={item.label}
+              clip={item.clip}
+              videoSrc={item.videoSrc}
+              imageSrc={item.imageSrc}
+              style={item.desktop.position}
+              tagPosition={item.desktop.tagPosition}
+              onClick={() => handleClick(item.id)}
+              disabled={item.disabled}
+            />
+          );
+        })}
       </div>
     </div>
   );

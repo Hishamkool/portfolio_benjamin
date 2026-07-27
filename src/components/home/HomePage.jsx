@@ -16,47 +16,157 @@ const TREE_POSITIONS = [
   { top: "70%", left: "2%", width: "12%", zIndex: 15 },
 ];
 
+// const MAP_ITEMS = [
+//   {
+//     id: "projects",
+//     label: "Projects",
+//     position: { top: "10.2%", left: "3.5%", width: "17.9%" },
+//     imageSrc: "/assets/home/house_jump_gif2.gif",
+//     tagPosition: {
+//       top: "50px",
+//       left: "-6%",
+//     },
+//   },
+//   {
+//     id: "about",
+//     label: "About the artist",
+
+//     videoSrc: "/assets/home/boy_withoutbg.webm",
+//     position: { top: "36.4%", left: "31.1%", width: "15.1%" },
+//     tagPosition: { top: "" },
+//   },
+//   {
+//     id: "services",
+//     label: "Services",
+//     videoSrc: "/assets/home/services_withoutbg.webm",
+//     position: { top: "35.6%", left: "47.0%", width: "31.9%" },
+//     tagPosition: {},
+//   },
+//   {
+//     id: "contact",
+//     label: "Contact",
+//     videoSrc: "/assets/home/ship_withoutbg.webm",
+//     position: { top: "-20%", left: "76.9%", width: "23.1%" },
+//     tagPosition: {
+//       top: "300px",
+//       left: "-15%",
+//     },
+//   },
+// ];
 const MAP_ITEMS = [
   {
     id: "projects",
     label: "Projects",
-    // videoSrc: "/assets/home/house_turn.mp4",
-    position: { top: "10.2%", left: "3.5%", width: "17.9%" },
-
-    // videoSrc: "/assets/home/house_withoutbg.webm",
     imageSrc: "/assets/home/house_jump_gif2.gif",
-    tagPosition: {
-      top: "50px",
-      left: "-6%",
+
+    desktop: {
+      position: {
+        top: "10.2%",
+        left: "3.5%",
+        width: "17.9%",
+      },
+      tagPosition: {
+        top: "11%",
+        right: "43%",
+      },
+    },
+
+    mobile: {
+      position: {
+        top: "3%",
+        left: "9%",
+        width: "49%",
+      },
+      tagPosition: {
+        top: "",
+        right: "40%",
+      },
     },
   },
+
   {
     id: "about",
     label: "About the artist",
-    /* 
-    videoSrc: "/assets/home/boy_playing.mp4",
-    position: { top: "13.4%", left: "29.1%", width: "15.1%" }, 
-    */
-
     videoSrc: "/assets/home/boy_withoutbg.webm",
-    position: { top: "36.4%", left: "31.1%", width: "15.1%" },
-    tagPosition: { top: "" },
+
+    desktop: {
+      position: {
+        top: "36.4%",
+        left: "31.1%",
+        width: "15.1%",
+      },
+      tagPosition: {
+        top: "-35%",
+      },
+    },
+
+    mobile: {
+      position: {
+        top: "27%",
+        left: "50%",
+        width: "40%",
+      },
+      tagPosition: {
+        top: "-50%",
+        left: "",
+      },
+    },
   },
+
   {
     id: "services",
     label: "Services",
     videoSrc: "/assets/home/services_withoutbg.webm",
-    position: { top: "35.6%", left: "47.0%", width: "31.9%" },
-    tagPosition: {},
+
+    desktop: {
+      position: {
+        top: "35.6%",
+        left: "47.0%",
+        width: "31.9%",
+      },
+      tagPosition: {},
+    },
+
+    mobile: {
+      position: {
+        top: "45%",
+        left: "5%",
+        width: "75%",
+      },
+      tagPosition: {
+        top: "-30%",
+        left: "",
+      },
+    },
   },
+
   {
     id: "contact",
     label: "Contact",
     videoSrc: "/assets/home/ship_withoutbg.webm",
-    position: { top: "-20%", left: "76.9%", width: "23.1%" },
-    tagPosition: {
-      top: "300px",
-      left: "-15%",
+
+    desktop: {
+      position: {
+        top: "-20%",
+        left: "76.9%",
+        width: "23.1%",
+      },
+      tagPosition: {
+        top: "40%",
+        left: "25%",
+      },
+    },
+
+    mobile: {
+      position: {
+        top: "65%",
+        right: 0,
+        width: "70%",
+      },
+      tagPosition: {
+        top: "35%",
+        right: "50%",
+      },
     },
   },
 ];
@@ -87,7 +197,7 @@ export default function HomePage({
   }, []);
 
   return isMobile ? (
-    <MobileMap />
+    <MobileMap mapItems={MAP_ITEMS} handleClick={handleClick} />
   ) : (
     <DesktopMap
       mapItems={MAP_ITEMS}
