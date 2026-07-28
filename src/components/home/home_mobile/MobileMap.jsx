@@ -1,7 +1,8 @@
 import MapItem from "../MapItem";
 import styles from "./MobileMap.module.css";
 
-export default function MobileMap({ mapItems, handleClick }) {
+export default function MobileMap({ mapItems, handleClick, treePositions }) {
+  const DEBUG_TREES = false;
   return (
     <div className={styles.page}>
       <div className={styles.mapContainer}>
@@ -27,6 +28,20 @@ export default function MobileMap({ mapItems, handleClick }) {
             />
           );
         })}
+
+        {/* tree positions */}
+        {treePositions.map((tree, i) => (
+          <img
+            key={i}
+            src="/assets/home/single_tree.svg"
+            style={{
+              ...tree,
+              outline: DEBUG_TREES ? `2px solid ${tree.debug}` : undefined,
+              background: DEBUG_TREES ? tree.debug : undefined,
+              opacity: DEBUG_TREES ? 0.6 : 1,
+            }}
+          />
+        ))}
       </div>
     </div>
   );

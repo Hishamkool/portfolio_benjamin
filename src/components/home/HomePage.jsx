@@ -15,44 +15,161 @@ const TREE_POSITIONS = [
   { top: "35%", left: "20%", width: "7%", zIndex: 15 },
   { top: "70%", left: "2%", width: "12%", zIndex: 15 },
 ];
+const bigTree = "22%";
+const medTree = "18%";
+const smallTree = "15%";
+// const MOBILE_TREE_POSITIONS = [
+//   /* home */
+//   { top: "3%", left: "3%", width: medTree, position: "absolute" },
+//   { top: "5%", left: "40%", width: bigTree, position: "absolute" },
+//   { top: "8%", right: "1%", width: bigTree, position: "absolute" },
+//   { top: "11%", right: "4%", width: smallTree, position: "absolute" },
+//   /* about */
+//   { top: "18%", left: "4%", width: smallTree, position: "absolute" },
+//   { top: "14%", left: "39%", width: medTree, position: "absolute" },
+//   { top: "24%", left: "33%", width: bigTree, position: "absolute" },
+//   { top: "26%", right: "-4%", width: bigTree, position: "absolute" },
+//   { top: "38%", right: "25%", width: "24%", position: "absolute" },
+//   /* service */
+//   { top: "40%", left: "5%", width: "15%", position: "absolute" },
 
-// const MAP_ITEMS = [
-//   {
-//     id: "projects",
-//     label: "Projects",
-//     position: { top: "10.2%", left: "3.5%", width: "17.9%" },
-//     imageSrc: "/assets/home/house_jump_gif2.gif",
-//     tagPosition: {
-//       top: "50px",
-//       left: "-6%",
-//     },
-//   },
-//   {
-//     id: "about",
-//     label: "About the artist",
-
-//     videoSrc: "/assets/home/boy_withoutbg.webm",
-//     position: { top: "36.4%", left: "31.1%", width: "15.1%" },
-//     tagPosition: { top: "" },
-//   },
-//   {
-//     id: "services",
-//     label: "Services",
-//     videoSrc: "/assets/home/services_withoutbg.webm",
-//     position: { top: "35.6%", left: "47.0%", width: "31.9%" },
-//     tagPosition: {},
-//   },
-//   {
-//     id: "contact",
-//     label: "Contact",
-//     videoSrc: "/assets/home/ship_withoutbg.webm",
-//     position: { top: "-20%", left: "76.9%", width: "23.1%" },
-//     tagPosition: {
-//       top: "300px",
-//       left: "-15%",
-//     },
-//   },
+//   { top: "57%", left: "14%", width: "15%", position: "absolute" },
+//   { top: "61%", left: "48%", width: bigTree, position: "absolute" },
+//   { top: "61%", left: "56%", width: "15%", position: "absolute" },
+//   { top: "67%", right: "3%", width: "15%", position: "absolute" },
+//   /* contact */
+//   { top: "80%", left: "3%", width: "15%", position: "absolute" },
+//   { top: "87%", left: "18%", width: "15%", position: "absolute" },
+//   { top: "90%", right: "5%", width: "15%", position: "absolute" },
 // ];
+const MOBILE_TREE_POSITIONS = [
+  /* home */
+  {
+    top: "3%",
+    left: "3%",
+    width: medTree,
+    position: "absolute",
+    debug: "red",
+  },
+  {
+    top: "5%",
+    left: "40%",
+    width: bigTree,
+    position: "absolute",
+    debug: "green",
+  },
+  {
+    top: "8%",
+    right: "1%",
+    width: bigTree,
+    position: "absolute",
+    debug: "blue",
+  },
+  {
+    top: "11%",
+    right: "4%",
+    width: smallTree,
+    position: "absolute",
+    debug: "orange",
+  },
+
+  /* about */
+  {
+    top: "18%",
+    left: "4%",
+    width: smallTree,
+    position: "absolute",
+    debug: "purple",
+  },
+  {
+    top: "14%",
+    left: "39%",
+    width: medTree,
+    position: "absolute",
+    debug: "cyan",
+  },
+  {
+    top: "24%",
+    left: "33%",
+    width: bigTree,
+    position: "absolute",
+    debug: "pink",
+  },
+  {
+    top: "26%",
+    right: "-4%",
+    width: bigTree,
+    position: "absolute",
+    debug: "yellow",
+  },
+  {
+    top: "38%",
+    right: "25%",
+    width: "24%",
+    position: "absolute",
+    debug: "lime",
+  },
+
+  /* service */
+  {
+    top: "40%",
+    left: "5%",
+    width: "15%",
+    position: "absolute",
+    debug: "teal",
+  },
+  {
+    top: "57%",
+    left: "14%",
+    width: "15%",
+    position: "absolute",
+    debug: "brown",
+  },
+  {
+    top: "61%",
+    left: "48%",
+    width: bigTree,
+    position: "absolute",
+    debug: "magenta",
+  },
+  {
+    top: "61%",
+    left: "56%",
+    width: "15%",
+    position: "absolute",
+    debug: "gold",
+  },
+  {
+    top: "67%",
+    right: "3%",
+    width: "15%",
+    position: "absolute",
+    debug: "navy",
+  },
+
+  /* contact */
+  {
+    top: "80%",
+    left: "3%",
+    width: "15%",
+    position: "absolute",
+    debug: "crimson",
+  },
+  {
+    top: "87%",
+    left: "18%",
+    width: "15%",
+    position: "absolute",
+    debug: "coral",
+  },
+  {
+    top: "90%",
+    right: "5%",
+    width: "15%",
+    position: "absolute",
+    debug: "violet",
+  },
+];
 const MAP_ITEMS = [
   {
     id: "projects",
@@ -130,7 +247,8 @@ const MAP_ITEMS = [
       },
       tagPosition: {
         left: "50%",
-        transform: "translate(-50%)",transform: "translate(-50%)",
+        transform: "translate(-50%)",
+        transform: "translate(-50%)",
       },
     },
 
@@ -204,7 +322,11 @@ export default function HomePage({
   }, []);
 
   return isMobile ? (
-    <MobileMap mapItems={MAP_ITEMS} handleClick={handleClick} />
+    <MobileMap
+      mapItems={MAP_ITEMS}
+      treePositions={MOBILE_TREE_POSITIONS}
+      handleClick={handleClick}
+    />
   ) : (
     <DesktopMap
       mapItems={MAP_ITEMS}
