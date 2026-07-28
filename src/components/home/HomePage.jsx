@@ -61,20 +61,22 @@ const MAP_ITEMS = [
 
     desktop: {
       position: {
-        top: "10.2%",
+        top: "17.2%",
         left: "3.5%",
         width: "17.9%",
       },
       tagPosition: {
-        top: "11%",
-        right: "43%",
+        top: "0%",
+        // right: "43%",
+        right: "50%",
+        transform: "translate(50%)",
       },
     },
 
     mobile: {
       position: {
-        top: "3%",
-        left: "9%",
+        top: "0%",
+        left: "12%",
         width: "49%",
       },
       tagPosition: {
@@ -97,6 +99,8 @@ const MAP_ITEMS = [
       },
       tagPosition: {
         top: "-35%",
+        left: " 52%",
+        transform: "translate(-50%)",
       },
     },
 
@@ -124,7 +128,10 @@ const MAP_ITEMS = [
         left: "47.0%",
         width: "31.9%",
       },
-      tagPosition: {},
+      tagPosition: {
+        left: "50%",
+        transform: "translate(-50%)",transform: "translate(-50%)",
+      },
     },
 
     mobile: {
@@ -159,8 +166,8 @@ const MAP_ITEMS = [
 
     mobile: {
       position: {
-        top: "65%",
-        right: 0,
+        top: "63%",
+        right: "-10%",
         width: "70%",
       },
       tagPosition: {

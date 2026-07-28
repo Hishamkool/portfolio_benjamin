@@ -23,8 +23,13 @@
 
 /* ── Floating label tag ── */
 .tag {
-  background: #1a1a1a;
-  color: #ffffff;
+  /* background: #1a1a1a; */
+  /* background-color: rgb(13, 36, 67); */
+
+  background: linear-gradient(135deg, #315d91, #1b365d);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+
   font-family: "DM Sans", sans-serif;
   font-size: 13px;
   font-weight: 600;
@@ -42,7 +47,7 @@
 }
 
 .item:not(.disabled):hover .tag {
-  background: #111;
+  background: linear-gradient(135deg, #4b83c8, #234b7a);
   transform: translateY(-2px);
 }
 
@@ -53,11 +58,16 @@
   bottom: -5px;
   left: 50%;
   transform: translateX(-50%);
+
   width: 0;
   height: 0;
+
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
-  border-top: 5px solid #1a1a1a;
+  border-top: 5px solid #1b365d;
+}
+.item:not(.disabled):hover .tag::after {
+  border-top: 5px solid #4b83c8;
 }
 
 .soon {

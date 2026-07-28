@@ -133,7 +133,7 @@ export default function BenjaminContact({ onClose }) {
   const infoRows = [
     { icon: "fas fa-envelope", val: "csbenju76@gmail.com", label: "Email" },
     { icon: "fas fa-map-marker-alt", val: "India", label: "Location" },
-    { icon: "fas fa-phone", val: "+91 6238 123 456", label: "Phone" },
+    { icon: "fas fa-phone", val: "+91 9562358421", label: "Phone" },
     {
       icon: "fas fa-clock",
       val: "Usually replies within 24 hrs",

@@ -6,7 +6,7 @@ export default function MobileMap({ mapItems, handleClick }) {
     <div className={styles.page}>
       <div className={styles.mapContainer}>
         <img
-          src="/assets/home/mobile_map_path.png"
+          src="/assets/home/mobile_map_path_new.png"
           alt="Portfolio Map"
           className={styles.mapImage}
           draggable={false}
