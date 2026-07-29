@@ -18,30 +18,7 @@ const TREE_POSITIONS = [
 const bigTree = "22%";
 const medTree = "18%";
 const smallTree = "15%";
-// const MOBILE_TREE_POSITIONS = [
-//   /* home */
-//   { top: "3%", left: "3%", width: medTree, position: "absolute" },
-//   { top: "5%", left: "40%", width: bigTree, position: "absolute" },
-//   { top: "8%", right: "1%", width: bigTree, position: "absolute" },
-//   { top: "11%", right: "4%", width: smallTree, position: "absolute" },
-//   /* about */
-//   { top: "18%", left: "4%", width: smallTree, position: "absolute" },
-//   { top: "14%", left: "39%", width: medTree, position: "absolute" },
-//   { top: "24%", left: "33%", width: bigTree, position: "absolute" },
-//   { top: "26%", right: "-4%", width: bigTree, position: "absolute" },
-//   { top: "38%", right: "25%", width: "24%", position: "absolute" },
-//   /* service */
-//   { top: "40%", left: "5%", width: "15%", position: "absolute" },
 
-//   { top: "57%", left: "14%", width: "15%", position: "absolute" },
-//   { top: "61%", left: "48%", width: bigTree, position: "absolute" },
-//   { top: "61%", left: "56%", width: "15%", position: "absolute" },
-//   { top: "67%", right: "3%", width: "15%", position: "absolute" },
-//   /* contact */
-//   { top: "80%", left: "3%", width: "15%", position: "absolute" },
-//   { top: "87%", left: "18%", width: "15%", position: "absolute" },
-//   { top: "90%", right: "5%", width: "15%", position: "absolute" },
-// ];
 const MOBILE_TREE_POSITIONS = [
   /* home */
   {
@@ -205,8 +182,8 @@ const MAP_ITEMS = [
         width: "49%",
       },
       tagPosition: {
-        top: "",
-        right: "40%",
+        top: "9%",
+        right: "34%",
       },
     },
   },
@@ -255,7 +232,6 @@ const MAP_ITEMS = [
       },
       tagPosition: {
         left: "50%",
-        transform: "translate(-50%)",
         transform: "translate(-50%)",
       },
     },
@@ -323,9 +299,7 @@ export default function HomePage({
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 768);
     };
-
     window.addEventListener("resize", handleResize);
-
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 

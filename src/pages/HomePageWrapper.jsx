@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import HomePage from "../components/home/HomePage";
 import ProjectsOverlay from "../components/home/projects/ProjectsOverlay";
 import AboutOverlay from "../components/home/about/AboutOverlay";
@@ -15,6 +15,21 @@ export default function HomePageWrapper() {
 
   const open = (name) => setActiveOverlay(name);
   const close = () => setActiveOverlay(null);
+
+  useEffect(() => {
+    if (activeOverlay) {
+      document.body.style.overflow = "hidden";
+      document.documentElement.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
+    }
+
+    return () => {
+      document.body.style.overflow = "";
+      document.body.style.touchAction = "";
+    };
+  }, [activeOverlay]);
 
   return (
     <>
@@ -43,8 +58,6 @@ export default function HomePageWrapper() {
           <ServicesOverlay onClose={close} />
         </div>
       )}
-
-      {/* About and Contact overlays — add later */}
     </>
   );
 }
