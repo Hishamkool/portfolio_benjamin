@@ -125,19 +125,20 @@ const MOBILE_TREE_POSITIONS = [
     position: "absolute",
     debug: "brown",
   },
+
+  {
+    top: "61%",
+    left: "54%",
+    width: "15%",
+    position: "absolute",
+    debug: "gold",
+  },
   {
     top: "61%",
     left: "48%",
     width: bigTree,
     position: "absolute",
     debug: "magenta",
-  },
-  {
-    top: "61%",
-    left: "56%",
-    width: "15%",
-    position: "absolute",
-    debug: "gold",
   },
   {
     top: "67%",
@@ -156,9 +157,16 @@ const MOBILE_TREE_POSITIONS = [
     debug: "crimson",
   },
   {
-    top: "87%",
-    left: "18%",
-    width: "15%",
+    top: "83%",
+    left: "31%",
+    width: medTree,
+    position: "absolute",
+    debug: "red",
+  },
+  {
+    top: "93%",
+    left: "10%",
+    width: bigTree,
     position: "absolute",
     debug: "coral",
   },
