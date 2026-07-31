@@ -1,107 +1,147 @@
+
+// ============================================================
+// AUTO GENERATED FEATURED PROJECTS
+// ============================================================
+
 export const FEATURED_PROJECTS = [
   {
-    id: 80,
-    src: "https://res.cloudinary.com/dgz5ncqal/image/upload/v1779136372/SAVE_20240128_181301_ppzdja.webp",
-    category: "illustration",
+    "id": 74,
+    "src": "https://res.cloudinary.com/seez0wah/image/upload/v1785520445/62b906227442317.68401f5632587_ach8oj.webp",
+    "category": "all_projects"
   },
   {
-    id: 65,
-    src: "https://res.cloudinary.com/dgz5ncqal/video/upload/v1778706203/Motion_Poster_1_amndnw.mp4",
-    category: "motion",
+    "id": 75,
+    "src": "https://res.cloudinary.com/seez0wah/image/upload/v1785520446/797c0a227442317.68401f56369b9_yqehte.webp",
+    "category": "all_projects"
   },
   {
-    id: 9,
-    src: "https://res.cloudinary.com/dgz5ncqal/image/upload/v1778775281/ishan-main_b6gqyl.webp",
-    category: "illustration",
+    "id": 76,
+    "src": "https://res.cloudinary.com/seez0wah/image/upload/v1785520446/art8_us3buu.webp",
+    "category": "all_projects"
   },
   {
-    id: 71,
-    src: "https://res.cloudinary.com/dgz5ncqal/image/upload/v1778775210/SAVE_20250623_215702_n92yl5.webp",
-    category: "3d",
+    "id": 77,
+    "src": "https://res.cloudinary.com/seez0wah/image/upload/v1785520441/art44_jc0wr9.webp",
+    "category": "all_projects"
   },
   {
-    id: 52,
-    src: "https://res.cloudinary.com/dgz5ncqal/video/upload/v1778706330/Kadal_005_White_Aromal_Chekaver_kffsw1.mp4",
-    category: "motion",
+    "id": 78,
+    "src": "https://res.cloudinary.com/seez0wah/image/upload/v1785520443/b073e1227442317.68401f562f572_fqwe76.webp",
+    "category": "all_projects"
   },
   {
-    id: 4,
-    src: "https://res.cloudinary.com/dgz5ncqal/image/upload/v1778775287/bleck_and_whitee_hsjphq.webp",
-    category: "illustration",
+    "id": 79,
+    "src": "https://res.cloudinary.com/seez0wah/image/upload/v1785520452/baji_5_fvbp5f.webp",
+    "category": "all_projects"
   },
   {
-    id: 63,
-    src: "https://res.cloudinary.com/dgz5ncqal/video/upload/v1778706206/Realme_ad5lm1.mp4",
-    category: "motion",
+    "id": 80,
+    "src": "https://res.cloudinary.com/seez0wah/video/upload/v1785520477/Blue_Wave_em9oot.mp4",
+    "category": "all_projects"
   },
   {
-    id: 15,
-    src: "https://res.cloudinary.com/dgz5ncqal/image/upload/v1778775278/art44_og1lif.webp",
-    category: "illustration",
+    "id": 81,
+    "src": "https://res.cloudinary.com/seez0wah/image/upload/v1785520444/ce6545227442317.68401f5633ca0_kpijvd.webp",
+    "category": "all_projects"
   },
   {
-    id: 18,
-    src: "https://res.cloudinary.com/dgz5ncqal/image/upload/v1778775274/HISHAM_m50yzs.webp",
-    category: "illustration",
+    "id": 82,
+    "src": "https://res.cloudinary.com/seez0wah/image/upload/v1785520446/final_onwjra.webp",
+    "category": "all_projects"
   },
   {
-    id: 57,
-    src: "https://res.cloudinary.com/dgz5ncqal/video/upload/v1778706219/Supermanhope_ugkqgb.mp4",
-    category: "motion",
+    "id": 83,
+    "src": "https://res.cloudinary.com/seez0wah/video/upload/v1785520443/Finalll_Pen01_jp0kjw.mp4",
+    "category": "all_projects"
   },
   {
-    id: 41,
-    src: "https://res.cloudinary.com/dgz5ncqal/image/upload/v1778775309/SAVE_20250610_210748_jheq5l.webp",
-    category: "illustration",
+    "id": 84,
+    "src": "https://res.cloudinary.com/seez0wah/image/upload/v1785520447/HISHAM_fpnhhg.webp",
+    "category": "all_projects"
   },
   {
-    id: 75,
-    src: "https://res.cloudinary.com/dgz5ncqal/image/upload/v1778775206/final_uujob9.webp",
-    category: "3d",
+    "id": 85,
+    "src": "https://res.cloudinary.com/seez0wah/image/upload/v1785520447/IMG_20230826_173001_ira2mf.webp",
+    "category": "all_projects"
   },
   {
-    id: 58,
-    src: "https://res.cloudinary.com/dgz5ncqal/video/upload/v1778706217/Turntable_by2fxi.mp4",
-    category: "motion",
+    "id": 86,
+    "src": "https://res.cloudinary.com/seez0wah/image/upload/v1785520447/ishan-main_a3uzce.webp",
+    "category": "all_projects"
   },
   {
-    id: 20,
-    src: "https://res.cloudinary.com/dgz5ncqal/image/upload/v1778775272/SAVE_20240810_221036_lbahwz.webp",
-    category: "illustration",
+    "id": 87,
+    "src": "https://res.cloudinary.com/seez0wah/video/upload/v1785520517/Kadha_Out_jvqv0e.mp4",
+    "category": "all_projects"
   },
   {
-    id: 31,
-    src: "https://res.cloudinary.com/dgz5ncqal/image/upload/v1778775282/solomen_cofffee_potr7l.webp",
-    category: "illustration",
+    "id": 88,
+    "src": "https://res.cloudinary.com/seez0wah/image/upload/v1785520447/main_eyw2wo.webp",
+    "category": "all_projects"
   },
   {
-    id: 39,
-    src: "https://res.cloudinary.com/dgz5ncqal/image/upload/v1778775363/SAVE_20250623_215713_mb2yhg.webp",
-    category: "sketches",
+    "id": 89,
+    "src": "https://res.cloudinary.com/seez0wah/image/upload/v1785520448/me_and_my__mqtbuv.webp",
+    "category": "all_projects"
   },
   {
-    id: 68,
-    src: "https://res.cloudinary.com/dgz5ncqal/image/upload/v1778775212/SAVE_20250623_215721_b7vuty.webp",
-    category: "3d",
+    "id": 90,
+    "src": "https://res.cloudinary.com/seez0wah/video/upload/v1785520446/Motion_Poster_1_wnbxsy.mp4",
+    "category": "all_projects"
   },
   {
-    id: 14,
-    src: "https://res.cloudinary.com/dgz5ncqal/image/upload/v1778775278/art9_wavmbx.webp",
-    category: "illustration",
+    "id": 91,
+    "src": "https://res.cloudinary.com/seez0wah/image/upload/v1785520446/perspppp_zydltb.webp",
+    "category": "all_projects"
   },
   {
-    id: 55,
-    src: "https://res.cloudinary.com/dgz5ncqal/video/upload/v1778706222/Blue_Wave_pxblud.mp4",
-    category: "motion",
+    "id": 92,
+    "src": "https://res.cloudinary.com/seez0wah/image/upload/v1785520446/perspppppokpkpo_jjjysp.webp",
+    "category": "all_projects"
   },
   {
-    id: 30,
-    src: "https://res.cloudinary.com/dgz5ncqal/image/upload/v1778775261/baji_5_w4j9gy.webp",
-    category: "illustration",
+    "id": 93,
+    "src": "https://res.cloudinary.com/seez0wah/image/upload/v1785518535/projects_view_br7axk.png",
+    "category": "all_projects"
   },
   {
-    id: 36,
-    src: "https://res.cloudinary.com/dgz5ncqal/image/upload/v1778775375/IMG_20230604_085345-01.jpeg_xhx26h.webp",
-    category: "sketches",
+    "id": 94,
+    "src": "https://res.cloudinary.com/seez0wah/video/upload/v1785520444/Realme_iwlmdt.mp4",
+    "category": "all_projects"
   },
+  {
+    "id": 95,
+    "src": "https://res.cloudinary.com/seez0wah/image/upload/v1785520447/SAVE_20240128_181301_tkxmkk.webp",
+    "category": "all_projects"
+  },
+  {
+    "id": 96,
+    "src": "https://res.cloudinary.com/seez0wah/image/upload/v1785520443/SAVE_20240411_184932_iy3cqc.webp",
+    "category": "all_projects"
+  },
+  {
+    "id": 97,
+    "src": "https://res.cloudinary.com/seez0wah/image/upload/v1785520450/SAVE_20240720_231251_yl6aqm.webp",
+    "category": "all_projects"
+  },
+  {
+    "id": 98,
+    "src": "https://res.cloudinary.com/seez0wah/image/upload/v1785520451/SAVE_20250610_210748_df21hr.webp",
+    "category": "all_projects"
+  },
+  {
+    "id": 99,
+    "src": "https://res.cloudinary.com/seez0wah/image/upload/v1785520445/SAVE_20250623_215653_mh4yoq.webp",
+    "category": "all_projects"
+  },
+  {
+    "id": 100,
+    "src": "https://res.cloudinary.com/seez0wah/video/upload/v1785520488/Supermanhope_kvj6zg.mp4",
+    "category": "all_projects"
+  },
+  {
+    "id": 101,
+    "src": "https://res.cloudinary.com/seez0wah/video/upload/v1785520478/Turntable_zadivt.mp4",
+    "category": "all_projects"
+  }
 ];

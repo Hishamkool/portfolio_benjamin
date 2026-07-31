@@ -33,20 +33,12 @@ async function generateProjects() {
   let allProjects = [];
   let currentId = 1;
 
+  // Generate projectData.js
   for (const folderData of folders) {
     const result = await cloudinary.search
       .expression(`folder="${folderData.cloudinaryFolder}"`)
       .max_results(500)
       .execute();
-
-    //checking response from cloudinary
-    /*  console.log(
-      result.resources.map((item) => ({
-        display_name: item.display_name,
-        filename: item.filename,
-        public_id: item.public_id,
-      })),
-    ); */
 
     const projects = result.resources
       .sort((a, b) =>
@@ -64,7 +56,7 @@ async function generateProjects() {
     allProjects.push(...projects);
   }
 
-  const content = `
+  const projectContent = `
 // ============================================================
 // AUTO GENERATED PROJECTS
 // ============================================================
@@ -72,9 +64,39 @@ async function generateProjects() {
 export const PROJECTS = ${JSON.stringify(allProjects, null, 2)};
 `;
 
-  fs.writeFileSync("./src/data/projectData.js", content);
+  fs.writeFileSync("./src/data/projectData.js", projectContent);
+
+  // Generate featuredProjects.js
+  const featuredResult = await cloudinary.search
+    .expression('folder="benjamin/All Projects"')
+    .max_results(500)
+    .execute();
+
+  const featuredProjects = featuredResult.resources
+    .sort((a, b) =>
+      a.display_name.localeCompare(b.display_name, undefined, {
+        numeric: true,
+        sensitivity: "base",
+      }),
+    )
+    .map((item) => ({
+      id: currentId++,
+      src: item.secure_url,
+      category: "all_projects",
+    }));
+
+  const featuredContent = `
+// ============================================================
+// AUTO GENERATED FEATURED PROJECTS
+// ============================================================
+
+export const FEATURED_PROJECTS = ${JSON.stringify(featuredProjects, null, 2)};
+`;
+
+  fs.writeFileSync("./src/data/featuredProjects.js", featuredContent);
 
   console.log("projectData.js generated successfully");
+  console.log("featuredProjects.js generated successfully");
 }
 
 generateProjects().catch(console.error);
