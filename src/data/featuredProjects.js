@@ -101,46 +101,41 @@ export const FEATURED_PROJECTS = [
   },
   {
     "id": 93,
-    "src": "https://res.cloudinary.com/seez0wah/image/upload/v1785518535/projects_view_br7axk.png",
-    "category": "all_projects"
-  },
-  {
-    "id": 94,
     "src": "https://res.cloudinary.com/seez0wah/video/upload/v1785520444/Realme_iwlmdt.mp4",
     "category": "all_projects"
   },
   {
-    "id": 95,
+    "id": 94,
     "src": "https://res.cloudinary.com/seez0wah/image/upload/v1785520447/SAVE_20240128_181301_tkxmkk.webp",
     "category": "all_projects"
   },
   {
-    "id": 96,
+    "id": 95,
     "src": "https://res.cloudinary.com/seez0wah/image/upload/v1785520443/SAVE_20240411_184932_iy3cqc.webp",
     "category": "all_projects"
   },
   {
-    "id": 97,
+    "id": 96,
     "src": "https://res.cloudinary.com/seez0wah/image/upload/v1785520450/SAVE_20240720_231251_yl6aqm.webp",
     "category": "all_projects"
   },
   {
-    "id": 98,
+    "id": 97,
     "src": "https://res.cloudinary.com/seez0wah/image/upload/v1785520451/SAVE_20250610_210748_df21hr.webp",
     "category": "all_projects"
   },
   {
-    "id": 99,
+    "id": 98,
     "src": "https://res.cloudinary.com/seez0wah/image/upload/v1785520445/SAVE_20250623_215653_mh4yoq.webp",
     "category": "all_projects"
   },
   {
-    "id": 100,
+    "id": 99,
     "src": "https://res.cloudinary.com/seez0wah/video/upload/v1785520488/Supermanhope_kvj6zg.mp4",
     "category": "all_projects"
   },
   {
-    "id": 101,
+    "id": 100,
     "src": "https://res.cloudinary.com/seez0wah/video/upload/v1785520478/Turntable_zadivt.mp4",
     "category": "all_projects"
   }
